@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Stéphane Manlango — Azure Solutions Architect</title>
+<title>Stéphane Manlango | Azure Solutions Architect</title>
 
 <!-- SEO Primary -->
 <meta name="description" content="Stéphane Manlango, Architecte Solutions Azure certifié AZ-305 & AZ-104. Expert en architecture cloud, migration Azure, audit sécurité, développement web et SEO pour PME & startups.">
@@ -15,13 +15,13 @@
 <!-- Open Graph (aperçu sur réseaux sociaux) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://uriah-manlango.com/">
-<meta property="og:title" content="Stéphane Manlango — Azure Solutions Architect">
+<meta property="og:title" content="Stéphane Manlango | Azure Solutions Architect">
 <meta property="og:description" content="Architecte Cloud Azure certifié AZ-305 & AZ-104. Architecture, migration, audit sécurité, dev web & SEO.">
 <meta property="og:locale" content="fr_FR">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stéphane Manlango — Azure Solutions Architect">
+<meta name="twitter:title" content="Stéphane Manlango | Azure Solutions Architect">
 <meta name="twitter:description" content="Architecte Cloud Azure certifié AZ-305 & AZ-104. Architecture, migration, audit sécurité, dev web & SEO.">
 
 <!-- Schema.org JSON-LD (données structurées pour Google) -->
@@ -85,20 +85,13 @@
     mix-blend-mode:difference;
   }
   #cur-ring {
-    position:fixed; width:36px; height:36px; border-radius:50%;
+    position:fixed; width:28px; height:28px; border-radius:50%;
     border:1px solid var(--ink); pointer-events:none;
     transform:translate(-50%,-50%); z-index:9998;
-    transition:width .35s cubic-bezier(.34,1.56,.64,1), height .35s, opacity .25s, border-color .2s;
+    transition:width .25s cubic-bezier(.34,1.56,.64,1), height .25s cubic-bezier(.34,1.56,.64,1), opacity .2s, border-color .2s, background .2s;
     opacity:.4;
   }
-  #cur-ring.hot { width:72px; height:72px; opacity:.9; border-color:var(--terra); }
-  #cur-ring.hot::after {
-    content:attr(data-label); position:absolute; top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    font-family:'JetBrains Mono', monospace; font-size:9px;
-    letter-spacing:.18em; text-transform:uppercase; color:var(--terra);
-    white-space:nowrap;
-  }
+  #cur-ring.hot { width:40px; height:40px; opacity:.9; border-color:var(--terra); background:rgba(217,88,44,.08); }
 
   /* === HEADER ============================================== */
   header {
@@ -233,210 +226,6 @@
   .hero-sub .vline {
     width:1px; height:64px; background:var(--ink);
     opacity:.4;
-  }
-
-  /* === OBJECTS (hotspots) ================================== */
-  .objects {
-    position:absolute; inset:0;
-    pointer-events:none;
-    z-index:10;
-  }
-  .obj {
-    position:absolute;
-    pointer-events:auto;
-    cursor:none;
-    transition:transform .6s cubic-bezier(.34,1.56,.64,1), filter .3s;
-    will-change:transform;
-  }
-  .obj:hover { transform:translateY(-6px) scale(1.04) rotate(var(--rot, 0deg)); filter: drop-shadow(0 16px 28px rgba(27,24,20,.18)); }
-  .obj-num { display:none; }
-  .obj-lab {
-    position:absolute; left:50%; bottom:-38px;
-    transform:translateX(-50%);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--cream); white-space:nowrap;
-    background:var(--ink);
-    padding:6px 14px; border-radius:99px;
-    box-shadow:0 4px 16px rgba(27,24,20,.3);
-    opacity:0; transition:opacity .3s, transform .4s cubic-bezier(.34,1.56,.64,1);
-    transform:translateX(-50%) translateY(8px);
-  }
-  .obj:hover .obj-lab { opacity:1; transform:translateX(-50%) translateY(0); }
-
-  /* individual object shapes (pure CSS/SVG) */
-  .o-about    { left:2vw;  top:11vh; --rot:-6deg; transform:rotate(-6deg) scale(.78); transform-origin:top left; }
-  .o-work     { right:3vw; top:13vh; --rot:4deg;  transform:rotate(4deg) scale(.78); transform-origin:top right; }
-  .o-skills   { left:2vw;  bottom:8vh; --rot:8deg; transform:rotate(8deg) scale(.78); transform-origin:bottom left; }
-  .o-journey  { right:2vw; bottom:10vh; --rot:-3deg; transform:rotate(-3deg) scale(.78); transform-origin:bottom right; }
-  .o-contact  { right:4vw; top:50%; --rot:0deg; transform:translateY(-50%) rotate(0) scale(.7); transform-origin:right center; opacity:.85; }
-
-  /* float idle animation */
-  @keyframes float-a { 0%,100%{ translate:0 0 } 50%{ translate:0 -8px } }
-  @keyframes float-b { 0%,100%{ translate:0 0 } 50%{ translate:0 -10px } }
-  @keyframes float-c { 0%,100%{ translate:0 0 } 50%{ translate:0 -6px } }
-  .o-about    .shape { animation: float-a 5.2s ease-in-out infinite; }
-  .o-work     .shape { animation: float-b 6s ease-in-out infinite .4s; }
-  .o-skills   .shape { animation: float-c 4.8s ease-in-out infinite .8s; }
-  .o-journey  .shape { animation: float-b 5.6s ease-in-out infinite .2s; }
-  .o-contact  .shape { animation: float-a 6.4s ease-in-out infinite .6s; }
-
-  /* shapes */
-  .shape { position:relative; display:block; }
-
-  /* Card stack (about) */
-  .s-cards {
-    width:120px; height:150px; position:relative;
-  }
-  .s-cards .c {
-    position:absolute; inset:0; background:var(--paper);
-    border:1.5px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--ink);
-  }
-  .s-cards .c1 { transform:rotate(-4deg) translate(-8px,-6px); background:var(--sage); }
-  .s-cards .c2 { transform:rotate(2deg) translate(4px,3px); background:var(--terra); }
-  .s-cards .c3 { background:var(--paper); display:flex; flex-direction:column; padding:14px; gap:6px; }
-  .s-cards .c3::before, .s-cards .c3::after {
-    content:''; height:6px; background:var(--ink); width:80%;
-  }
-  .s-cards .c3::after { width:50%; opacity:.4; }
-
-  /* Monitor (projects) */
-  .s-mon { width:160px; height:120px; position:relative; }
-  .s-mon .screen {
-    width:100%; height:88px;
-    background:var(--ink);
-    border:1.5px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--terra);
-    padding:10px;
-    display:grid; grid-template-columns:1fr 1fr; gap:4px;
-  }
-  .s-mon .screen i { background:var(--cream); opacity:.85; display:block; }
-  .s-mon .screen i:nth-child(2){ background:var(--terra); }
-  .s-mon .screen i:nth-child(3){ background:var(--sage); }
-  .s-mon .stand {
-    width:30%; height:14px; background:var(--ink);
-    margin:0 auto;
-  }
-  .s-mon .base {
-    width:60%; height:6px; background:var(--ink);
-    margin:0 auto; border-radius:4px;
-  }
-
-  /* Toolbox (skills) */
-  .s-tool { width:150px; height:130px; position:relative; }
-  .s-tool .lid {
-    width:100%; height:30px; background:var(--terra);
-    border:1.5px solid var(--ink);
-    border-radius:6px 6px 0 0;
-    position:relative;
-  }
-  .s-tool .lid::before {
-    content:''; position:absolute; top:6px; left:50%;
-    transform:translateX(-50%);
-    width:48px; height:16px; background:var(--ink);
-    border-radius:4px 4px 0 0;
-  }
-  .s-tool .body {
-    width:100%; height:90px; background:var(--paper);
-    border:1.5px solid var(--ink); border-top:none;
-    box-shadow: 6px 6px 0 var(--ink);
-    display:flex; align-items:center; justify-content:center;
-    gap:10px;
-  }
-  .s-tool .body span {
-    width:14px; height:38px; background:var(--ink); display:block;
-  }
-  .s-tool .body span:nth-child(2){ background:var(--sage); height:30px; }
-  .s-tool .body span:nth-child(3){ background:var(--terra); height:44px; }
-  .s-tool .body span:nth-child(4){ background:var(--ink); height:26px; }
-  .s-tool .body span:nth-child(5){ background:var(--sage); height:36px; }
-
-  /* Compass (journey) */
-  .s-comp { width:140px; height:140px; position:relative; }
-  .s-comp .ring {
-    width:100%; height:100%; border:1.5px solid var(--ink);
-    border-radius:50%; background:var(--paper);
-    box-shadow: 6px 6px 0 var(--ink);
-    position:relative;
-  }
-  .s-comp .ring::before, .s-comp .ring::after {
-    content:''; position:absolute; left:50%; top:50%;
-    transform-origin:50% 0;
-  }
-  .s-comp .needle {
-    position:absolute; left:50%; top:8%;
-    width:6px; height:42%;
-    background:linear-gradient(to bottom, var(--terra) 50%, var(--ink) 50%);
-    transform:translateX(-50%);
-    transform-origin:50% 100%;
-    animation:spin 14s linear infinite;
-  }
-  @keyframes spin { from { transform:translateX(-50%) rotate(0deg);} to { transform:translateX(-50%) rotate(360deg);} }
-  .s-comp .dot-c {
-    position:absolute; left:50%; top:50%;
-    width:10px; height:10px; border-radius:50%;
-    background:var(--ink);
-    transform:translate(-50%,-50%);
-  }
-  .s-comp .tick {
-    position:absolute; left:50%; width:2px; height:8px;
-    background:var(--ink); transform-origin:50% 60px;
-  }
-
-  /* Envelope (contact) */
-  .s-env { width:160px; height:100px; position:relative; }
-  .s-env .body {
-    width:100%; height:100%; background:var(--cream);
-    border:1.5px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--terra);
-    position:relative; overflow:hidden;
-  }
-  .s-env .body::before, .s-env .body::after {
-    content:''; position:absolute;
-  }
-  .s-env .body::before {
-    top:0; left:0; right:0; height:50%;
-    background:linear-gradient(135deg, var(--cream) 49%, var(--ink) 50%, var(--cream) 51%) right/200% 100%;
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
-    background:var(--paper); border-bottom:1.5px solid var(--ink);
-  }
-  .s-env .body::after {
-    top:0; left:0; width:100%; height:100%;
-    background:
-      linear-gradient(to top right, transparent 49%, var(--ink) 49.5%, var(--ink) 50.5%, transparent 51%);
-    opacity:.6;
-  }
-  .s-env .stamp {
-    position:absolute; top:10px; right:10px;
-    width:34px; height:42px; background:var(--terra);
-    border:1.5px solid var(--ink);
-    z-index:2;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Instrument Serif', serif; color:var(--cream); font-size:18px;
-    font-style:italic;
-  }
-
-  /* === FOOTER STRIP ======================================= */
-  .footer {
-    position:fixed; left:0; right:0; bottom:0;
-    z-index:300;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:18px 32px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--muted);
-    pointer-events:none;
-  }
-  .footer > div { pointer-events:auto; }
-  .footer .clock { display:flex; align-items:center; gap:10px; }
-  .footer .clock .dot { width:6px; height:6px; border-radius:50%; background:var(--terra); }
-
-  .scroll-hint {
-    display:inline-flex; align-items:center; gap:10px;
-  }
-  .scroll-hint .line {
-    width:30px; height:1px; background:var(--ink); opacity:.4;
   }
 
   /* === OVERLAY (room detail) ============================== */
@@ -760,62 +549,560 @@
     .nav-top { display:none; }
     .hero { padding:0 24px; }
     .hero-title { font-size:clamp(44px, 14vw, 96px); }
-    .objects { display:none; }
     .panel { padding:64px 24px 40px; width:100%; }
     .proj-grid { grid-template-columns:1fr; }
-    .footer { padding:14px 20px 90px; font-size:9px; } .stage { padding-bottom:80px; } .hero { padding-bottom:80px; } .scroll-hint { display:none; } .hero-meta { display:none; } 
-    .footer .clock span:not(.dot) { display:none; }
-    .obj { transform:scale(.7) !important; }
+    .stage { padding-bottom:80px; } .hero { padding-bottom:80px; } .hero-meta { display:none; } 
   }
 
-  /* === FLOATING MOBILE NAV ================================ */
-  .mob-nav { display:none; }
-  @media (max-width: 900px) {
-    .mob-nav {
-      display:flex;
-      position:fixed;
-      bottom:16px; left:50%;
-      transform:translateX(-50%);
-      z-index:400;
-      background:var(--ink);
-      border-radius:99px;
-      padding:10px 14px;
-      gap:4px;
-      box-shadow:0 8px 32px rgba(27,24,20,.35);
-    }
-    .mob-btn {
-      display:flex; flex-direction:column; align-items:center; gap:4px;
-      padding:8px 12px;
-      border:none; background:transparent;
-      color:rgba(237,230,216,.55);
-      font-family:'JetBrains Mono', monospace;
-      font-size:8px; letter-spacing:.12em; text-transform:uppercase;
-      cursor:pointer;
-      border-radius:99px;
-      transition:background .2s, color .2s;
-      white-space:nowrap;
-    }
-    .mob-btn:active { background:var(--terra); color:var(--cream); }
-    .mob-btn svg {
-      width:18px; height:18px;
-      stroke:currentColor; fill:none;
-      stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;
-    }
+
+  /* === SCROLL FX : architecture Azure ======================= */
+  #fx {
+    position:fixed; inset:0; z-index:150;
+    background:
+      radial-gradient(ellipse 80% 65% at 50% 55%, var(--paper), transparent 70%),
+      var(--cream);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:84px 24px 96px;
+    transition:opacity .9s cubic-bezier(.76,0,.24,1), transform .9s cubic-bezier(.76,0,.24,1), visibility 0s linear .9s;
   }
-  @media (min-width:1400px) {
-    .o-about    { transform:rotate(-6deg) scale(1); }
-    .o-work     { transform:rotate(4deg) scale(1); }
-    .o-skills   { transform:rotate(8deg) scale(1); }
-    .o-journey  { transform:rotate(-3deg) scale(1); }
-    .o-contact  { transform:translateY(-50%) rotate(0) scale(.85); }
+  #fx.done { opacity:0; transform:scale(1.03); pointer-events:none; visibility:hidden; }
+  #fx svg { width:min(1180px,100%); height:100%; max-height:calc(100vh - 190px); overflow:visible; }
+
+  #fx .f-line   { fill:none; stroke:var(--ink); stroke-width:1.5; }
+  #fx .f-dash   { fill:none; stroke:var(--muted); stroke-width:1.2; stroke-dasharray:5 6; }
+  #fx .f-vnet   { fill:rgba(217,88,44,.04); stroke:var(--terra); stroke-width:1.6; }
+  #fx .f-sub    { fill:rgba(244,239,227,.7); stroke:var(--line); stroke-width:1.2; }
+  #fx .f-node   { fill:var(--paper); stroke:var(--ink); stroke-width:1.5; }
+  #fx .f-node-k { fill:var(--ink); stroke:var(--ink); stroke-width:1.5; }
+  #fx .f-link   { fill:none; stroke:var(--terra); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  #fx .f-tick   { fill:none; stroke:var(--sage); stroke-width:1.6; stroke-dasharray:3 5; }
+  #fx .f-shield { fill:rgba(169,181,154,.07); stroke:var(--terra); stroke-width:2.2; }
+  #fx .f-label  { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; fill:var(--ink); }
+  #fx .f-label.k{ fill:var(--cream); }
+  #fx .f-tag    { font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; fill:var(--muted); }
+  #fx .f-pulse  { fill:var(--terra); }
+  #fx .f-diamond{ fill:var(--terra); }
+  #fx g.f-diamond path{ fill:var(--terra); }
+
+  .fx-cap {
+    position:absolute; left:0; right:0; bottom:44px;
+    text-align:center; pointer-events:none;
   }
-  @media (max-width:1100px) and (min-width:901px) {
-    .o-about    { transform:rotate(-6deg) scale(.6); }
-    .o-work     { transform:rotate(4deg) scale(.6); }
-    .o-skills   { transform:rotate(8deg) scale(.6); }
-    .o-journey  { transform:rotate(-3deg) scale(.6); }
-    .o-contact  { display:none; }
+  .fx-cap .n {
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--terra);
   }
+  .fx-cap .t {
+    font-family:'Instrument Serif', serif; font-size:clamp(22px,3.2vw,38px);
+    color:var(--ink); margin-top:6px; transition:opacity .35s, transform .35s;
+  }
+  .fx-cap .t em { color:var(--terra); }
+  .fx-cap.swap .t, .fx-cap.swap .n { opacity:0; transform:translateY(6px); }
+
+  .fx-prog {
+    position:absolute; right:32px; top:50%; transform:translateY(-50%);
+    width:2px; height:160px; background:var(--line);
+  }
+  .fx-prog i { position:absolute; left:0; top:0; width:100%; height:0; background:var(--terra); }
+
+  .fx-hint {
+    position:absolute; left:32px; bottom:44px;
+    font-family:'JetBrains Mono', monospace; font-size:10px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+    display:flex; align-items:center; gap:10px; transition:opacity .4s;
+  }
+  .fx-hint .arr { display:inline-block; animation:fxbob 1.6s ease-in-out infinite; }
+  @keyframes fxbob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+  .fx-skip {
+    position:absolute; right:32px; bottom:40px;
+    font-family:'JetBrains Mono', monospace; font-size:10px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--ink);
+    background:none; border:1px solid var(--line); border-radius:99px;
+    padding:8px 14px; cursor:none; transition:border-color .2s, color .2s;
+  }
+  .fx-skip:hover { border-color:var(--terra); color:var(--terra); }
+  @media (prefers-reduced-motion: reduce) { #fx { display:none; } }
+
+  /* nouvelles classes du schéma */
+  #fx .f-hub    { fill:rgba(27,24,20,.03); stroke:var(--ink); stroke-width:1.4; }
+  #fx .f-plink  { fill:none; stroke:var(--sage); stroke-width:2.6; stroke-linecap:round; }
+  #fx .f-idl    { fill:none; stroke:var(--ink); stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; opacity:.75; }
+  #fx .f-chip   { fill:var(--terra); }
+  #fx .f-chip.sage { fill:var(--sage); }
+  #fx .f-chiptxt { font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.14em; fill:var(--cream); }
+  #fx .f-chiptxt.sage { fill:var(--ink); }
+  #fx .f-mini   { font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; fill:var(--muted); }
+  #fx rect.f-dash { fill:rgba(169,181,154,.08); stroke:var(--sage); stroke-width:1.4; }
+
+  /* === TRAITS : hero, rail, panneaux ======================== */
+  .panel:not(.active) { box-shadow:none; }
+
+  /* apparition du hero après l'intro */
+  .fx-pending .hero-meta, .fx-pending .hero-title, .fx-pending .hero-sub { opacity:0; transform:translateY(26px); }
+  .hero-meta, .hero-title, .hero-sub { transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .hero-meta  { transition-delay:.1s; }
+  .hero-title { transition-delay:.25s; }
+  .hero-sub   { transition-delay:.5s; }
+  .hero-meta .bar { transition:width 1s cubic-bezier(.76,0,.24,1) .5s; }
+  .fx-pending .hero-meta .bar { width:0; }
+  .hero-sub .vline { transition:height 1s cubic-bezier(.76,0,.24,1) .9s; }
+  .fx-pending .hero-sub .vline { height:0; }
+
+  /* circuit du hero : les cinq salles reliées au cadre */
+  #circuit { position:absolute; inset:0; width:100%; height:100%; z-index:3; pointer-events:none; overflow:visible; }
+  .c-frame { fill:none; stroke:var(--ink); stroke-opacity:.3; stroke-width:1.2;
+    stroke-dasharray:var(--L); stroke-dashoffset:var(--L);
+    transition:stroke-dashoffset 2.4s cubic-bezier(.76,0,.24,1) .2s; }
+  .c-link  { fill:none; stroke:var(--terra); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:var(--L); stroke-dashoffset:var(--L);
+    transition:stroke-dashoffset 1s cubic-bezier(.76,0,.24,1) var(--d,1s); }
+  .c-dot   { fill:var(--terra); opacity:0; transition:opacity .5s ease var(--d2,1.8s); }
+  .c-corner{ fill:var(--cream); stroke:var(--ink); stroke-opacity:.5; stroke-width:1.2; opacity:0; transition:opacity .6s ease 1.2s; }
+  .c-tag   { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+    fill:var(--muted); opacity:0; transition:opacity .8s ease 1.4s; }
+  .c-pulse { fill:var(--terra); opacity:0; }
+  body.ready .c-frame, body.ready .c-link { stroke-dashoffset:0; }
+  body.ready .c-dot, body.ready .c-corner, body.ready .c-tag { opacity:1; }
+
+  /* rail des salles : le trait qui relie les pages */
+  #rail { position:fixed; top:130px; left:0; width:0; z-index:560; pointer-events:none; }
+  .rl-line { position:absolute; left:0; top:0; width:1px; height:296px; background:var(--cream); opacity:.6;
+    transform-origin:top; transform:scaleY(0); transition:transform .9s cubic-bezier(.76,0,.24,1) .15s; }
+  #rail.open .rl-line { transform:scaleY(1); }
+  .rl-dock { position:absolute; left:0; top:0; width:40px; height:1.5px; background:var(--terra);
+    transform-origin:left; transform:scaleX(0);
+    transition:top .65s cubic-bezier(.76,0,.24,1), transform .5s cubic-bezier(.76,0,.24,1) .35s; }
+  #rail.open .rl-dock { transform:scaleX(1); }
+  .rl-pulse { position:absolute; left:-3px; top:-3px; width:7px; height:7px; border-radius:50%; background:var(--terra);
+    opacity:0; transition:top .65s cubic-bezier(.76,0,.24,1), opacity .4s ease .6s; box-shadow:0 0 0 4px rgba(217,88,44,.25); }
+  #rail.open .rl-pulse { opacity:1; }
+  .rl-node { position:absolute; left:-122px; width:128px; height:22px; margin-top:-11px;
+    display:flex; align-items:center; justify-content:flex-end; gap:14px;
+    background:none; border:0; padding:0; cursor:none; pointer-events:none;
+    font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--cream); opacity:0; transform:translateX(10px);
+    transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1), color .25s; }
+  #rail.open .rl-node { opacity:.7; transform:none; pointer-events:auto; transition-delay:calc(.35s + var(--i) * 70ms); }
+  #rail.open .rl-node:hover { opacity:1; }
+  #rail.open .rl-node.active { opacity:1; color:var(--cream); }
+  #rail.open .rl-node.active b { color:var(--terra); opacity:1; }
+  #rail.open .rl-node.active i { border-color:var(--terra); }
+  .rl-node b { font-weight:500; opacity:.6; margin-right:6px; }
+  .rl-node i { width:11px; height:11px; border:1.5px solid currentColor; transform:rotate(45deg); background:var(--ink);
+    transition:background .3s, transform .4s cubic-bezier(.34,1.56,.64,1); flex:none; margin-right:-0.5px; }
+  .rl-node.active i { background:var(--terra); transform:rotate(45deg) scale(1.3); }
+
+  /* trace qui part de l'objet cliqué vers la salle */
+  #trace { position:fixed; inset:0; width:100%; height:100%; z-index:555; pointer-events:none; }
+  #trace path { fill:none; stroke:var(--terra); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+    transition:stroke-dashoffset .7s cubic-bezier(.76,0,.24,1), opacity .6s ease; }
+  #trace circle { fill:var(--terra); }
+
+  /* dans les panneaux : colonne vertébrale + apparition en cascade */
+  .panel-section { position:relative; padding-left:22px; }
+  .panel-section::before { content:''; position:absolute; left:3px; top:8px; bottom:-30px; width:1px;
+    background:var(--terra); opacity:.55; transform-origin:top; transform:scaleY(0);
+    transition:transform 1s cubic-bezier(.76,0,.24,1) .5s; }
+  .panel-section:last-child::before { bottom:0; }
+  .panel-section::after { content:''; position:absolute; left:0; top:4px; width:7px; height:7px; background:var(--terra);
+    transform:rotate(45deg) scale(0); transition:transform .45s cubic-bezier(.34,1.56,.64,1) .6s; }
+  .panel.active .panel-section::before { transform:scaleY(1); }
+  .panel.active .panel-section::after { transform:rotate(45deg) scale(1); }
+
+  @keyframes rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+  .panel.active .panel-tag   { animation:rise .7s cubic-bezier(.2,.7,.2,1) .20s backwards; }
+  .panel.active .panel-title { animation:rise .8s cubic-bezier(.2,.7,.2,1) .28s backwards; }
+  .panel.active .panel-lead  { animation:rise .8s cubic-bezier(.2,.7,.2,1) .38s backwards; }
+  .panel.active .tl-item, .panel.active .proj, .panel.active .contact-row, .panel.active .skill {
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards;
+    animation-delay:calc(.5s + min(var(--i,0), 14) * 60ms); }
+
+  @media (max-width:900px) {
+    #circuit, #rail { display:none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .panel.active .panel-tag, .panel.active .panel-title, .panel.active .panel-lead,
+    .panel.active .tl-item, .panel.active .proj, .panel.active .contact-row, .panel.active .skill { animation:none; }
+  }
+  /* === INTRODUCTION avant la landing zone =================== */
+  .fx-intro { position:absolute; inset:0; z-index:2; pointer-events:none;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    padding:84px 24px 110px; }
+  .fx-intro > * { animation:fiRise 1s cubic-bezier(.2,.7,.2,1) both; }
+  .fi-tag   { animation-delay:2.5s; }
+  .fi-title { animation-delay:2.7s; }
+  .fi-sub   { animation-delay:3.5s; }
+  .fi-chips { animation-delay:3.9s; }
+  .fi-next  { animation-delay:4.5s; }
+  @keyframes fiRise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+  .fi-tag { display:inline-flex; align-items:center; gap:12px; margin-bottom:22px;
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--terra); }
+  .fi-tag::before, .fi-tag::after { content:''; width:28px; height:1px; background:var(--terra); }
+  .fi-title { font-family:'Instrument Serif', serif; font-weight:400; font-size:clamp(36px,5.8vw,92px);
+    line-height:1; letter-spacing:-.025em; color:var(--ink); max-width:min(980px,92vw); margin-bottom:30px; }
+  .fi-title em { color:var(--terra); font-style:italic; }
+  .fi-sub { font-family:'Inter', sans-serif; font-size:clamp(14px,1.2vw,17px); line-height:1.65; color:var(--ink-2);
+    max-width:560px; margin-bottom:26px; }
+  .fi-chips { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:34px; }
+  .fi-chips span { padding:7px 14px; border:1px solid var(--ink); border-radius:99px;
+    font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); }
+  .fi-chips span:first-child, .fi-chips span:nth-child(2) { background:var(--terra); border-color:var(--terra); color:var(--cream); }
+  .fi-next { font-family:'Instrument Serif', serif; font-style:italic; font-size:clamp(17px,1.7vw,24px); color:var(--muted); max-width:520px; }
+  @media (max-width:700px) { .fx-intro { padding:80px 20px 150px; } .fi-title { margin-bottom:22px; } }
+  @media (prefers-reduced-motion: reduce) { .fx-intro > * { animation:none; } }
+  /* === LES CINQ SALLES : cartes-nœuds ======================== */
+  .rooms { position:absolute; z-index:10; display:flex; flex-direction:column; gap:14px; }
+  .room {
+    appearance:none; -webkit-appearance:none; text-align:left; cursor:none; font:inherit; color:var(--ink);
+    position:relative;
+    display:grid; grid-template-columns:auto 1fr auto; align-items:center; column-gap:16px;
+    padding:14px 20px 14px 14px;
+    background:var(--paper); border:1.5px solid var(--ink); border-radius:6px;
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, background .25s, color .25s, border-color .25s;
+  }
+  .room:hover, .room:focus-visible {
+    transform:translate(-4px,-4px); background:var(--ink); color:var(--cream);
+    box-shadow:5px 5px 0 var(--terra); outline:none;
+  }
+  .rm-ico { width:38px; height:38px; border:1.5px solid currentColor; border-radius:6px; display:grid; place-items:center; flex:none; }
+  .rm-ico svg { width:20px; height:20px; fill:currentColor; }
+  .rm-txt { display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .rm-num { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.22em; color:var(--terra); }
+  .rm-t   { font-family:'Instrument Serif', serif; font-size:26px; line-height:1.05; letter-spacing:-.01em; }
+  .rm-s   { font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); transition:color .25s; }
+  .room:hover .rm-s, .room:focus-visible .rm-s { color:rgba(237,230,216,.65); }
+  .rm-ar  { font-family:'JetBrains Mono', monospace; font-size:16px; color:var(--terra); transition:transform .3s; }
+  .room:hover .rm-ar { transform:translateX(5px); }
+
+  .fx-pending .room { opacity:0; }
+  body.ready .room { animation:roomIn .9s cubic-bezier(.2,.7,.2,1) backwards; animation-delay:calc(1.7s + var(--i) * .12s); }
+  @keyframes roomIn { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:none; } }
+
+  /* disposition desktop : titre à gauche, salles à droite */
+  @media (min-width:901px) {
+    .hero { left:clamp(72px,8vw,150px); right:auto; margin:0; padding:0; max-width:min(760px,50vw); }
+    .hero-title { max-width:none; }
+    .rooms { right:clamp(64px,7vw,130px); top:50%; transform:translateY(-50%); width:clamp(280px,25vw,350px); }
+  }
+  @media (min-width:901px) and (max-height:700px) {
+    .rooms { gap:9px; }
+    .room { padding:9px 16px 9px 11px; }
+    .rm-s { display:none; }
+    .rm-t { font-size:22px; }
+  }
+
+  /* circuit : tronc, colonne, branches */
+  .c-link.hot { stroke-width:3.2; }
+  .c-dot.hot  { transform:scale(1.6); transform-box:fill-box; transform-origin:center; }
+  .c-dot { transition:opacity .5s ease var(--d2,1.8s), transform .3s; }
+  .c-link { transition:stroke-dashoffset 1s cubic-bezier(.76,0,.24,1) var(--d,1s), stroke-width .25s; }
+
+  /* intro : deux schémas, un par format d'écran */
+  #fx svg.fx-m { display:none; }
+  #fx .fx-m .f-label { font-size:9.5px; letter-spacing:.04em; }
+  #fx .fx-m .f-mini  { font-size:8px; }
+
+  /* === MOBILE ================================================ */
+  @media (max-width:900px) {
+    #fx svg.fx-d { display:none; }
+    #fx svg.fx-m { display:block; width:100%; height:100%; max-height:none; flex:1; min-height:0; overflow:hidden;
+      -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+              mask-image:linear-gradient(to bottom, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%); }
+    #fx { padding:66px 10px 150px; }
+    .fx-prog { display:none; }
+    .fx-hint { left:18px; bottom:30px; }
+    .fx-skip { right:16px; top:auto; bottom:22px; }
+    .fx-cap  { bottom:68px; padding:0 18px; }
+    .fx-intro { padding:80px 22px 150px; }
+
+    .hero { left:0; right:0; margin:0; max-width:none; padding:96px 22px 0; justify-content:flex-start; }
+    .hero-title { font-size:clamp(38px,11.2vw,84px); margin-bottom:22px; max-width:none; }
+    .hero-sub p { font-size:13.5px; }
+    .stage { padding-bottom:0; }
+
+    .rooms { left:22px; right:22px; bottom:52px; gap:8px; padding-left:22px; }
+    .room { padding:9px 14px 9px 10px; column-gap:12px; }
+    .rm-ico { width:32px; height:32px; }
+    .rm-ico svg { width:17px; height:17px; }
+    .rm-txt { flex-direction:row; align-items:baseline; gap:10px; }
+    .rm-t { font-size:22px; }
+    .rm-s { display:none; }
+    .rm-ar { font-size:14px; }
+
+    /* colonne vertébrale + branches (CSS pur) */
+    .rooms::before { content:''; position:absolute; left:5px; top:24px; bottom:24px; width:1.5px; background:var(--terra);
+      transform-origin:top; }
+    .fx-pending .rooms::before { transform:scaleY(0); }
+    body.ready .rooms::before { animation:spineDraw 1.3s cubic-bezier(.76,0,.24,1) .6s backwards; }
+    .room::before { content:''; position:absolute; left:-17px; top:50%; width:17px; height:1.5px; background:var(--terra);
+      transform-origin:left; transform:translateY(-50%); }
+    .room::after { content:''; position:absolute; left:-21px; top:50%; width:8px; height:8px; background:var(--terra);
+      transform:translateY(-50%) rotate(45deg); }
+    .fx-pending .room::before, .fx-pending .room::after { opacity:0; }
+    body.ready .room::before { animation:tickDraw .5s cubic-bezier(.76,0,.24,1) backwards; animation-delay:calc(1.2s + var(--i) * .12s); }
+    body.ready .room::after  { animation:dotPop .4s cubic-bezier(.34,1.56,.64,1) backwards; animation-delay:calc(1.5s + var(--i) * .12s); }
+    body.ready .rooms::after { content:''; position:absolute; left:2px; top:20px; width:8px; height:8px; border-radius:50%;
+      background:var(--terra); box-shadow:0 0 0 4px rgba(217,88,44,.22); opacity:0;
+      animation:spinePulse 5s ease-in-out 2.8s infinite; pointer-events:none; }
+  }
+  @media (max-width:900px) and (max-height:760px) {
+    .hero-sub { display:none; }
+    .hero { padding-top:84px; }
+    .room { padding:7px 12px 7px 9px; }
+    .rooms { gap:6px; bottom:46px; }
+  }
+  @keyframes spineDraw { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+  @keyframes tickDraw  { from { transform:translateY(-50%) scaleX(0); } to { transform:translateY(-50%) scaleX(1); } }
+  @keyframes dotPop    { from { transform:translateY(-50%) rotate(45deg) scale(0); } to { transform:translateY(-50%) rotate(45deg) scale(1); } }
+  @keyframes spinePulse { 0% { top:20px; opacity:0; } 12% { opacity:1; } 88% { opacity:1; } 100% { top:calc(100% - 28px); opacity:0; } }
+  @media (prefers-reduced-motion: reduce) {
+    body.ready .room, body.ready .room::before, body.ready .room::after, body.ready .rooms::before, body.ready .rooms::after { animation:none; }
+  }
+
+  /* =====================================================================
+     V5 : hero d'architecte, panneaux distincts, icônes Material
+  ===================================================================== */
+  .mi { width:1em; height:1em; fill:currentColor; display:block; flex:none; }
+  .panel-close .mi { width:20px; height:20px; }
+  .rm-ico svg { fill:currentColor !important; stroke:none !important; }
+
+  /* planche de dessin */
+  .stage {
+    background:
+      linear-gradient(rgba(27,24,20,.075) 1px, transparent 1px) 0 0/240px 240px,
+      linear-gradient(90deg, rgba(27,24,20,.075) 1px, transparent 1px) 0 0/240px 240px,
+      linear-gradient(rgba(27,24,20,.035) 1px, transparent 1px) 0 0/48px 48px,
+      linear-gradient(90deg, rgba(27,24,20,.035) 1px, transparent 1px) 0 0/48px 48px,
+      radial-gradient(ellipse 80% 65% at 50% 55%, var(--paper), transparent 70%),
+      var(--cream);
+  }
+  .c-rule { fill:none; stroke:var(--ink); stroke-opacity:.4; stroke-width:1; opacity:0; transition:opacity .9s ease 1.1s; }
+  .c-rtxt { font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.14em; fill:var(--muted); opacity:0; transition:opacity .9s ease 1.3s; }
+  .c-cart { fill:var(--paper); stroke:var(--ink); stroke-width:1.2; opacity:0; transition:opacity .8s ease 1.9s; }
+  .c-cartln { fill:none; stroke:var(--ink); stroke-opacity:.5; stroke-width:1; opacity:0; transition:opacity .8s ease 2s; }
+  .c-ck { font-family:'JetBrains Mono', monospace; font-size:7.5px; letter-spacing:.2em; text-transform:uppercase; fill:var(--muted); opacity:0; transition:opacity .8s ease 2.1s; }
+  .c-cv { font-family:'Instrument Serif', serif; font-size:14px; fill:var(--ink); opacity:0; transition:opacity .8s ease 2.1s; }
+  .c-dim { fill:none; stroke:var(--terra); stroke-width:1.1; opacity:0; transition:opacity .9s ease 1.6s; }
+  .c-dimbg { fill:var(--cream); opacity:0; transition:opacity .9s ease 1.6s; }
+  .c-dimtxt { font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; fill:var(--terra); opacity:0; transition:opacity .9s ease 1.7s; }
+  .c-mark { fill:var(--cream); stroke:var(--terra); stroke-width:1.4; opacity:0; transition:opacity .8s ease 1.8s; }
+  .c-marktxt { font-family:'JetBrains Mono', monospace; font-size:10px; fill:var(--terra); opacity:0; transition:opacity .8s ease 1.9s; }
+  body.ready .c-rule, body.ready .c-rtxt, body.ready .c-cart, body.ready .c-cartln, body.ready .c-ck, body.ready .c-cv,
+  body.ready .c-dim, body.ready .c-dimbg, body.ready .c-dimtxt, body.ready .c-mark, body.ready .c-marktxt { opacity:1; }
+
+  /* ombre hachurée au survol des salles (bureau) */
+  @media (min-width:901px) {
+    .room:hover, .room:focus-visible { box-shadow:none; }
+    .room::after { content:''; position:absolute; inset:0; border:1.5px solid var(--terra); border-radius:6px;
+      transform:translate(10px,10px);
+      background:repeating-linear-gradient(135deg, var(--terra) 0 1.5px, transparent 1.5px 6px);
+      clip-path:polygon(calc(100% - 10px) 0, 100% 0, 100% 100%, 0 100%, 0 calc(100% - 10px), calc(100% - 10px) calc(100% - 10px));
+      opacity:0; transition:opacity .25s; pointer-events:none; }
+    .room:hover::after, .room:focus-visible::after { opacity:1; }
+  }
+
+  /* bandeau de planche, commun aux cinq pages */
+  .sheet { position:absolute; top:30px; left:56px; right:92px; display:flex; justify-content:space-between; gap:12px;
+    font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+    border-bottom:1px solid var(--ink); padding-bottom:7px; }
+  .sheet b { font-weight:500; color:var(--ink); }
+  .panel { background-attachment:local; }
+
+  /* ---------- 01 À propos : planche d'identité ---------- */
+  #p-about { background-image:radial-gradient(rgba(27,24,20,.15) 1px, transparent 1.3px); background-size:22px 22px; }
+  .seals { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .seal { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
+  .seal-ring { position:relative; width:104px; height:104px; border-radius:50%; border:1.5px solid var(--ink); background:var(--paper);
+    display:grid; place-items:center; transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+  .seal:hover .seal-ring { transform:rotate(-6deg) scale(1.05); }
+  .seal-ring::before { content:''; position:absolute; inset:6px; border-radius:50%; border:1px dashed var(--ink); opacity:.55; }
+  .panel.active .seal-ring::before { animation:sealSpin 40s linear infinite; }
+  @keyframes sealSpin { to { transform:rotate(360deg); } }
+  .seal-ring span { font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.06em; color:var(--ink); font-weight:500; }
+  .seal-ring .mi { position:absolute; top:-6px; right:-6px; width:26px; height:26px; color:var(--terra); background:var(--paper); border-radius:50%; }
+  .seal.hot .seal-ring { background:var(--terra); border-color:var(--terra); }
+  .seal.hot .seal-ring span { color:var(--cream); }
+  .seal.hot .seal-ring::before { border-color:var(--cream); }
+  .seal b { font-family:'Instrument Serif', serif; font-weight:400; font-size:17px; line-height:1.15; color:var(--ink); }
+  .facts { display:grid; grid-template-columns:1fr 1fr; border:1.5px solid var(--ink); background:var(--paper); }
+  .fact { padding:20px 20px 22px; border-right:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink); }
+  .fact:nth-child(2n) { border-right:0; }
+  .fact:nth-child(n+3) { border-bottom:0; }
+  .fact-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+  .fact-ico { width:38px; height:38px; border:1.5px solid var(--ink); display:grid; place-items:center; font-size:20px; transition:background .25s, color .25s; }
+  .fact:hover .fact-ico { background:var(--ink); color:var(--cream); }
+  .fact-k { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--terra); }
+  .fact h5 { font-family:'Instrument Serif', serif; font-size:22px; font-weight:400; letter-spacing:-.01em; margin-bottom:6px; color:var(--ink); }
+  .fact h5 em { font-style:italic; color:var(--terra); }
+  .fact p { font-family:'Inter', sans-serif; font-size:13px; line-height:1.55; color:var(--ink-2); }
+
+  /* ---------- 02 Services : plan masse ---------- */
+  #p-work { background-image:linear-gradient(rgba(27,24,20,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(27,24,20,.05) 1px, transparent 1px); background-size:32px 32px; }
+  #p-work .panel-section, #p-contact .panel-section, #p-journey .panel-section { padding-left:0; }
+  #p-work .panel-section::before, #p-work .panel-section::after,
+  #p-contact .panel-section::before, #p-contact .panel-section::after,
+  #p-journey .panel-section::before, #p-journey .panel-section::after { display:none; }
+  .plan { display:grid; grid-template-columns:30px 1fr; grid-template-rows:30px auto; }
+  .plan-cols { grid-column:2; grid-row:1; display:grid; grid-template-columns:1fr 1fr; }
+  .plan-rows { grid-column:1; grid-row:2; display:grid; grid-template-rows:1fr 1fr; }
+  .ax { display:grid; place-items:center; }
+  .ax span { width:22px; height:22px; border-radius:50%; border:1.2px solid var(--terra); color:var(--terra); background:var(--paper);
+    font-family:'JetBrains Mono', monospace; font-size:10px; display:grid; place-items:center; }
+  .plan-grid { grid-column:2; grid-row:2; display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:5px; padding:5px; background:var(--ink); }
+  .room-p { position:relative; background:var(--paper); padding:20px 20px 46px; min-height:214px; transition:background .3s, color .3s; }
+  .rp-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+  .rp-ico { width:40px; height:40px; border:1.5px solid var(--ink); display:grid; place-items:center; font-size:22px; transition:border-color .3s; }
+  .rp-n { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.22em; color:var(--terra); }
+  .room-p h5 { font-family:'Instrument Serif', serif; font-size:24px; font-weight:400; letter-spacing:-.01em; margin-bottom:6px; color:var(--ink); transition:color .3s; }
+  .room-p h5 em { font-style:italic; color:var(--terra); }
+  .room-p p { font-family:'Inter', sans-serif; font-size:13px; line-height:1.55; color:var(--ink-2); transition:color .3s; }
+  .room-p:hover { background:var(--ink); }
+  .room-p:hover h5 { color:var(--cream); }
+  .room-p:hover p { color:rgba(237,230,216,.78); }
+  .room-p:hover .rp-ico { border-color:var(--cream); color:var(--cream); }
+  .door { position:absolute; right:22px; bottom:0; width:30px; height:30px; border-left:1.5px solid var(--terra);
+    border-top:1px dashed var(--terra); border-right:1px dashed var(--terra); border-top-right-radius:100%; pointer-events:none; }
+  .door::after { content:''; position:absolute; left:-1.5px; bottom:-6px; width:31px; height:6px; background:var(--paper); }
+  .plan-cap { display:flex; align-items:center; gap:12px; margin:14px 0 30px 30px; font-family:'JetBrains Mono', monospace;
+    font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--terra); }
+  .plan-cap::before, .plan-cap::after { content:''; flex:1; height:1px; background:var(--terra); opacity:.6; }
+
+  /* ---------- 03 Stack : coupe par niveaux ---------- */
+  #p-skills { background-image:linear-gradient(rgba(27,24,20,.05) 1px, transparent 1px); background-size:100% 28px; }
+  #p-skills .panel-section.storey { position:relative; padding:26px 0 18px 70px; margin-bottom:0; }
+  #p-skills .panel-section.storey::after { display:none; }
+  #p-skills .panel-section.storey::before { content:''; position:absolute; left:0; right:0; top:0; bottom:auto; width:auto; height:8px; opacity:1;
+    background:repeating-linear-gradient(135deg, var(--ink) 0 1px, transparent 1px 5px);
+    border-top:1.5px solid var(--ink); border-bottom:1px solid var(--ink);
+    transform:scaleX(0); transform-origin:left; transition:transform 1s cubic-bezier(.76,0,.24,1) .5s; }
+  #p-skills.active .panel-section.storey::before { transform:scaleX(1); }
+  .lvl { position:absolute; left:0; top:28px; display:flex; flex-direction:column; gap:5px; font-family:'JetBrains Mono', monospace;
+    font-size:10px; letter-spacing:.08em; color:var(--terra); }
+  .lvl i { display:block; position:relative; width:46px; height:10px; border-bottom:1.5px solid var(--terra); }
+  .lvl i::before { content:''; position:absolute; left:0; bottom:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:9px solid var(--terra); }
+  #p-skills .panel-section h4 .mi { font-size:16px; color:var(--terra); }
+  #p-skills .chip { border-radius:0; padding:6px 10px; }
+  #p-skills .skill-bar { height:14px; border-radius:0; overflow:visible; border-bottom:1px solid var(--ink);
+    background:repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 10%) 0 100%/100% 6px no-repeat; }
+  #p-skills .skill-bar i { top:2px; bottom:auto; height:5px; width:100%; border-radius:0; }
+  .skill-bar i { width:100%; }
+
+  /* ---------- 04 Parcours : axe gradué ---------- */
+  #p-journey .tl { position:relative; }
+  #p-journey .tl::before { content:''; position:absolute; left:123px; top:0; bottom:0; width:8px; border-left:1.5px solid var(--ink);
+    background:repeating-linear-gradient(180deg, var(--ink) 0 1px, transparent 1px 10px) 0 0/6px 100% no-repeat; }
+  #p-journey .tl-item { position:relative; grid-template-columns:104px 1fr; gap:38px; }
+  #p-journey .tl-item::before { content:''; position:absolute; left:118px; top:24px; width:11px; height:11px; background:var(--paper);
+    border:1.5px solid var(--ink); transform:rotate(45deg); transition:background .3s, transform .3s; }
+  #p-journey .tl-item:hover::before { background:var(--terra); border-color:var(--terra); transform:rotate(45deg) scale(1.3); }
+  #p-journey .exp .tl-item::before { background:var(--terra); border-color:var(--terra); }
+  #p-journey .tl-date { font-family:'Instrument Serif', serif; font-size:21px; line-height:1.1; letter-spacing:0; color:var(--ink); text-align:right; padding-top:0; }
+  #p-journey .panel-section h4 .mi { font-size:16px; color:var(--terra); }
+
+  /* ---------- 05 Contact : cartouche ---------- */
+  #p-contact { background-image:repeating-linear-gradient(135deg, rgba(27,24,20,.04) 0 1px, transparent 1px 10px); }
+  #p-contact .contact-list { border:1.5px solid var(--ink); background:var(--paper); gap:0; margin-bottom:34px; }
+  #p-contact .contact-row { grid-template-columns:54px 84px 1fr auto; gap:0; padding:0; border-bottom:1.5px solid var(--ink);
+    transition:background .3s, color .3s; align-items:stretch; }
+  #p-contact .contact-row:last-child { border-bottom:0; }
+  #p-contact .contact-row:hover { padding-left:0; background:var(--ink); color:var(--cream); }
+  #p-contact .contact-row > * { padding:18px 14px; display:flex; align-items:center; }
+  #p-contact .tb-ico { padding:0; justify-content:center; border-right:1.5px solid var(--ink); font-size:20px; color:var(--terra); }
+  #p-contact .contact-row:hover .tb-ico { border-color:var(--cream); }
+  #p-contact .contact-row .cv { font-size:20px; overflow-wrap:anywhere; }
+  #p-contact .contact-row:hover .cv { color:var(--cream); }
+  .brief { border:1.5px dashed var(--ink); padding:14px 16px; margin:18px 0 26px; display:flex; gap:14px; align-items:baseline; background:var(--paper); }
+  .brief-k { font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terra); flex:none; }
+  .brief-v { font-family:'Instrument Serif', serif; font-size:20px; line-height:1.2; color:var(--ink); }
+  .pick { appearance:none; -webkit-appearance:none; background:transparent; cursor:none; }
+  .pick::before { content:'+'; margin-right:8px; }
+  .pick[aria-pressed="true"] { background:var(--terra); border-color:var(--terra); color:var(--cream); }
+  .pick[aria-pressed="true"]::before { content:'\00d7'; }
+
+  .panel.active .seal, .panel.active .fact, .panel.active .room-p, .panel.active .storey {
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards; animation-delay:calc(.5s + min(var(--i,0), 14) * 60ms); }
+
+  @media (max-width:900px) {
+    .sheet { left:24px; right:76px; top:24px; font-size:8px; letter-spacing:.14em; }
+    .seals { gap:8px; }
+    .seal-ring { width:80px; height:80px; }
+    .seal-ring span { font-size:10.5px; }
+    .seal b { font-size:14px; }
+    .facts { grid-template-columns:1fr; }
+    .fact, .fact:nth-child(2n), .fact:nth-child(n+3) { border-right:0; border-bottom:1.5px solid var(--ink); }
+    .fact:last-child { border-bottom:0; }
+    .plan { grid-template-columns:1fr; grid-template-rows:auto; }
+    .plan-cols, .plan-rows { display:none; }
+    .plan-grid { grid-column:1; grid-row:1; grid-template-columns:1fr; }
+    .room-p { min-height:0; }
+    .plan-cap { margin-left:0; }
+    #p-skills .panel-section.storey { padding-left:54px; }
+    .lvl i { width:36px; }
+    #p-skills .skill { grid-template-columns:96px 1fr 34px; gap:10px; }
+    #p-journey .tl::before { left:79px; }
+    #p-journey .tl-item { grid-template-columns:62px 1fr; gap:34px; }
+    #p-journey .tl-item::before { left:74px; }
+    #p-journey .tl-date { font-size:16px; }
+    #p-contact .contact-row { grid-template-columns:48px 1fr auto; grid-template-areas:"ico ck ca" "ico cv ca"; }
+    #p-contact .contact-row .tb-ico { grid-area:ico; }
+    #p-contact .contact-row .ck { grid-area:ck; padding-bottom:0; }
+    #p-contact .contact-row .cv { grid-area:cv; padding-top:4px; font-size:15px; overflow-wrap:anywhere; }
+    #p-contact .contact-row > * { padding-left:10px; padding-right:10px; }
+    #p-contact .contact-row .tb-ico { padding:0; }
+    #p-contact .contact-row .ca { grid-area:ca; }
+    .brief { flex-direction:column; gap:6px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .panel.active .seal, .panel.active .fact, .panel.active .room-p, .panel.active .storey, .panel.active .seal-ring::before { animation:none; }
+  }
+
+  /* survol des salles : carte claire, accent orange */
+  .room:hover, .room:focus-visible { background:var(--paper); color:var(--ink); border-color:var(--terra); }
+  .room:hover .rm-s, .room:focus-visible .rm-s { color:var(--muted); }
+  .room:hover .rm-ico, .room:focus-visible .rm-ico { background:var(--ink); border-color:var(--ink); color:var(--cream); }
+  .rm-ico { transition:background .25s, color .25s, border-color .25s; }
+
+  /* survol noir : pages intérieures (pas l'accueil) */
+  .fact { transition:background .3s, color .3s; }
+  .fact:hover { background:var(--ink); }
+  .fact:hover h5, .fact:hover .fact-ico { color:var(--cream); }
+  .fact:hover p { color:rgba(237,230,216,.78); }
+  .fact:hover .fact-ico { background:transparent; border-color:var(--cream); }
+  .seal-ring { transition:transform .4s cubic-bezier(.34,1.56,.64,1), background .3s, border-color .3s; }
+  .seal:hover .seal-ring { background:var(--ink); border-color:var(--ink); }
+  .seal:hover .seal-ring span { color:var(--cream); }
+  .seal:hover .seal-ring::before { border-color:var(--cream); }
+  .tl-item { transition:background .3s, box-shadow .3s; }
+  .tl-item:hover { background:var(--ink); box-shadow:-14px 0 0 var(--ink), 14px 0 0 var(--ink); }
+  .tl-item:hover .tl-date, .tl-item:hover .tl-body h5, .tl-item:hover .tl-place { color:var(--cream); }
+  .tl-item:hover .tl-body p, .tl-item:hover .tl-body ul li { color:rgba(237,230,216,.8); }
+  #p-journey .tl-item:hover::before { background:var(--terra); border-color:var(--terra); }
+  #p-journey .tl-item:hover .tl-date { color:var(--cream); }
+
+  /* survol unifié : carte claire, trait orange, pastille d'icône noire (comme l'accueil) */
+  .fact:hover, .room-p:hover { background:var(--paper); box-shadow:inset 0 0 0 2px var(--terra); }
+  .fact:hover h5, .room-p:hover h5 { color:var(--ink); }
+  .fact:hover p, .room-p:hover p { color:var(--ink-2); }
+  .fact:hover .fact-ico, .room-p:hover .rp-ico { background:var(--ink); border-color:var(--ink); color:var(--cream); }
+  .seal:hover .seal-ring { border-color:var(--terra); box-shadow:0 0 0 4px rgba(217,88,44,.18); }
+  .seal:not(.hot):hover .seal-ring { background:var(--paper); }
+  .seal:not(.hot):hover .seal-ring span { color:var(--ink); }
+  .seal:not(.hot):hover .seal-ring::before { border-color:var(--ink); }
+  .seal.hot:hover .seal-ring span { color:var(--cream); }
+  .seal.hot:hover .seal-ring::before { border-color:var(--cream); }
+  .tl-item:hover { background:var(--paper); box-shadow:-12px 0 0 var(--paper), 12px 0 0 var(--paper); outline:1.5px solid var(--terra); outline-offset:10px; }
+  .tl-item:hover .tl-date, .tl-item:hover .tl-body h5, .tl-item:hover .tl-place,
+  #p-journey .tl-item:hover .tl-date { color:var(--ink); }
+  .tl-item:hover .tl-place { color:var(--muted); }
+  .tl-item:hover .tl-body p, .tl-item:hover .tl-body ul li { color:var(--ink-2); }
+  #p-contact .contact-row:hover { background:var(--paper); color:var(--ink); box-shadow:inset 0 0 0 2px var(--terra); }
+  #p-contact .contact-row:hover .cv { color:var(--ink); }
+  #p-contact .contact-row:hover .tb-ico { background:var(--ink); border-color:var(--ink); color:var(--cream); }
+  .chip:hover { background:var(--paper); border-color:var(--terra); color:var(--terra); }
+  .chip.terra:hover { background:var(--terra); color:var(--cream); }
+  .chip.sage:hover { background:var(--sage); border-color:var(--terra); color:var(--ink); }
+  .pick[aria-pressed="true"]:hover { background:var(--terra); color:var(--cream); }
+  .panel-close:hover { background:transparent; border-color:var(--terra); color:var(--terra); }
 </style>
 </head>
 <body>
@@ -823,6 +1110,305 @@
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 <div class="grain"></div>
+
+<!-- SCROLL FX : l'architecture Azure se construit au scroll -->
+<noscript><style>#fx{display:none}</style></noscript>
+<div id="fx" style="touch-action:none" aria-label="Animation : une architecture Azure qui se construit">
+  <div class="fx-intro" id="fx-intro">
+    <div class="fi-tag">Introduction</div>
+    <h2 class="fi-title">Un cloud bien pensé<br><em>commence par ses fondations.</em></h2>
+    <p class="fi-sub">Je suis Stéphane Manlango, architecte Solutions Azure certifié. J’aide les PME et les startups à concevoir, sécuriser et moderniser leur cloud.</p>
+    <div class="fi-chips"><span>AZ-305</span><span>AZ-104</span><span>Casablanca</span></div>
+    <p class="fi-next">Voici, brique par brique, comment je construis une architecture sécurisée.</p>
+  </div>
+  <svg class="fx-d" viewBox="0 0 1200 740" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Schéma d'une landing zone Azure sécurisée : hub and spoke, pare-feu, private endpoints, Entra ID">
+
+    <!-- Bouclier de sécurité (dernier à apparaître) -->
+    <rect class="fxe f-shield" data-k="draw" data-s="0.86" data-e="0.96" x="170" y="26" width="1030" height="704" rx="26"/>
+    <text class="fxe f-tag" data-k="fade" data-s="0.94" data-e="0.98" x="196" y="17" style="fill:var(--terra)">Defender for Cloud · Zero Trust</text>
+
+    <!-- Abonnement / Landing Zone -->
+    <rect class="fxe f-line" data-k="draw" data-s="0" data-e="0.08" x="190" y="50" width="990" height="660" rx="14" style="stroke:var(--muted);stroke-width:1.3"/>
+    <text class="fxe f-tag" data-k="fade" data-s="0.05" data-e="0.1" x="212" y="80">Abonnement Azure · Landing Zone</text>
+
+    <!-- Entrée -->
+    <g class="fxe" data-k="pop" data-s="0.02" data-e="0.07">
+      <rect class="f-node-k" x="30" y="302" width="120" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(43 323) scale(.5833)"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></g>
+      <text class="f-label k" x="60" y="334.0">Visiteur</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.08" data-e="0.12">
+      <rect class="f-node" x="215" y="302" width="140" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(228 323) scale(.5833)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-.61.08-1.21.21-1.78L8.99 15v1c0 1.1.9 2 2 2v1.93C7.06 19.43 4 16.07 4 12zm13.89 5.4c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41C17.92 5.77 20 8.65 20 12c0 2.08-.81 3.98-2.11 5.4z"/></g>
+      <text class="f-label" x="245" y="334.0">Front Door</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.11" data-e="0.14"><rect class="f-chip" x="311" y="294" width="40" height="16" rx="3"/><text class="f-chiptxt" x="331.0" y="305.5" text-anchor="middle">WAF</text></g>
+
+    <!-- Spoke : réseau applicatif -->
+    <rect class="fxe f-vnet" data-k="draw" data-s="0.14" data-e="0.22" x="400" y="95" width="510" height="395" rx="12"/>
+    <text class="fxe f-tag" data-k="fade" data-s="0.2" data-e="0.24" x="420" y="121" style="fill:var(--terra)">Spoke VNet · 10.1.0.0/16</text>
+    <g class="fxe" data-k="pop" data-s="0.19" data-e="0.23">
+      <rect class="f-sub" x="415" y="145" width="150" height="325" rx="8"/>
+      <text class="f-tag" x="429" y="172">Subnet · Web</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.21" data-e="0.25">
+      <rect class="f-sub" x="580" y="145" width="150" height="325" rx="8"/>
+      <text class="f-tag" x="594" y="172">Subnet · App</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.23" data-e="0.27">
+      <rect class="f-sub" x="745" y="145" width="150" height="325" rx="8"/>
+      <text class="f-tag" x="759" y="172">Subnet · PE</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.26" data-e="0.29"><rect class="f-chip sage" x="521" y="447" width="36" height="16" rx="3"/><text class="f-chiptxt sage" x="539.0" y="458.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="fade" data-s="0.27" data-e="0.3"><rect class="f-chip sage" x="686" y="447" width="36" height="16" rx="3"/><text class="f-chiptxt sage" x="704.0" y="458.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="fade" data-s="0.28" data-e="0.31"><rect class="f-chip sage" x="851" y="447" width="36" height="16" rx="3"/><text class="f-chiptxt sage" x="869.0" y="458.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="pop" data-s="0.26" data-e="0.3">
+      <rect class="f-node" x="425" y="302" width="130" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(438 323) scale(.5833)"><path d="m9.78 11.16-1.42 1.42a7.282 7.282 0 0 1-1.79-2.94l1.94-.49c.32.89.77 1.5 1.27 2.01zM11 6 7 2 3 6h3.02c.02.81.08 1.54.19 2.17l1.94-.49C8.08 7.2 8.03 6.63 8.02 6H11zm10 0-4-4-4 4h2.99c-.1 3.68-1.28 4.75-2.54 5.88-.5.44-1.01.92-1.45 1.55-.34-.49-.73-.88-1.13-1.24L9.46 13.6c.93.85 1.54 1.54 1.54 3.4v5h2v-5c0-2.02.71-2.66 1.79-3.63 1.38-1.24 3.08-2.78 3.2-7.37H21z"/></g>
+      <text class="f-label" x="455" y="334.0">App Gateway</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.29" data-e="0.32"><rect class="f-chip" x="515" y="294" width="38" height="16" rx="3"/><text class="f-chiptxt" x="534.0" y="305.5" text-anchor="middle">WAF</text></g>
+    <g class="fxe" data-k="pop" data-s="0.33" data-e="0.37">
+      <rect class="f-node" x="590" y="235" width="130" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(603 256) scale(.5833)"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 9h10.5v3.5H4V9zm0 5.5h10.5V18H4v-3.5zM20 18h-3.5V9H20v9z"/></g>
+      <text class="f-label" x="620" y="267.0">App Service</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.37" data-e="0.41">
+      <rect class="f-node" x="590" y="365" width="130" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(603 386) scale(.5833)"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.97 17.55 11 21 11 21z"/></g>
+      <text class="f-label" x="620" y="397.0">Functions</text>
+    </g>
+
+    <!-- Hub : pare-feu, bastion, DNS privé -->
+    <rect class="fxe f-hub" data-k="draw" data-s="0.43" data-e="0.5" x="400" y="520" width="510" height="170" rx="12"/>
+    <text class="fxe f-tag" data-k="fade" data-s="0.48" data-e="0.52" x="420" y="546">Hub VNet · 10.0.0.0/16</text>
+    <g class="fxe" data-k="pop" data-s="0.52" data-e="0.56">
+      <rect class="f-node" x="425" y="575" width="120" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(438 596) scale(.5833)"><path d="M17 17.5c-.73 0-2.19.36-2.24 1.08.5.71 1.32 1.17 2.24 1.17s1.74-.46 2.24-1.17c-.05-.72-1.51-1.08-2.24-1.08z"/><path d="M18 11.09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55A5.973 5.973 0 0 0 17 23c3.31 0 6-2.69 6-6 0-2.97-2.16-5.43-5-5.91zM11 17c0 .56.08 1.11.23 1.62-.24.11-.48.22-.73.3-3.17-1-5.5-4.24-5.5-7.74v-3.6l5.5-2.4 5.5 2.4v3.51c-2.84.48-5 2.94-5 5.91zm6 4c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></g>
+      <text class="f-label" x="455" y="607.0">Bastion</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.48" data-e="0.53">
+      <rect class="f-node" x="580" y="575" width="150" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(593 596) scale(.5833)"><path d="m16 6-.44.55c-.42.52-.98.75-1.54.75C13 7.3 12 6.52 12 5.3V2S4 6 4 13c0 4.42 3.58 8 8 8s8-3.58 8-8c0-2.96-1.61-5.62-4-7zm-4 13c-1.1 0-2-.87-2-1.94 0-.51.2-.99.58-1.36L12 14.3l1.43 1.4c.37.37.57.85.57 1.36 0 1.07-.9 1.94-2 1.94zm3.96-1.5c.04-.36.22-1.89-1.13-3.22L12 11.5l-2.83 2.78C7.81 15.62 8 17.16 8.04 17.5A5.982 5.982 0 0 1 6 13c0-3.16 2.13-5.65 4.03-7.25a4.024 4.024 0 0 0 3.99 3.55c.78 0 1.54-.23 2.18-.66A6.175 6.175 0 0 1 18 13c0 1.79-.79 3.4-2.04 4.5z"/></g>
+      <text class="f-label" x="610" y="607.0">Azure Firewall</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.55" data-e="0.59">
+      <rect class="f-node" x="760" y="575" width="130" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(773 596) scale(.5833)"><path d="M19 15v4H5v-4h14m1-2H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 18.5c-.82 0-1.5-.67-1.5-1.5s.68-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 5v4H5V5h14m1-2H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 8.5c-.82 0-1.5-.67-1.5-1.5S6.18 5.5 7 5.5s1.5.68 1.5 1.5S7.83 8.5 7 8.5z"/></g>
+      <text class="f-label" x="790" y="607.0">Private DNS</text>
+    </g>
+    <text class="fxe f-mini" data-k="fade" data-s="0.56" data-e="0.6" x="667" y="508">UDR → Firewall</text>
+    <g class="fxe" data-k="pop" data-s="0.84" data-e="0.87">
+      <rect class="f-node" x="215" y="640" width="120" height="56" rx="6"/>
+      <g class="f-diamond" transform="translate(228 661) scale(.5833)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/><path d="M7 12h2v5H7zm8-5h2v10h-2zm-4 7h2v3h-2zm0-4h2v2h-2z"/></g>
+      <text class="f-label" x="245" y="672.0">Monitor</text>
+    </g>
+
+    <!-- PaaS derrière Private Link -->
+    <rect class="fxe f-dash" data-k="draw" data-s="0.6" data-e="0.64" x="940" y="150" width="210" height="300" rx="10"/>
+    <text class="fxe f-tag" data-k="fade" data-s="0.62" data-e="0.66" x="956" y="172">PaaS · Private Link</text>
+    <g class="fxe" data-k="pop" data-s="0.62" data-e="0.66">
+      <rect class="f-node" x="755" y="190" width="130" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(768 207) scale(.5833)"><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></g>
+      <text class="f-label" x="785" y="218.0">PE · SQL</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.64" data-e="0.68">
+      <rect class="f-node" x="755" y="270" width="130" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(768 287) scale(.5833)"><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></g>
+      <text class="f-label" x="785" y="298.0">PE · Vault</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.66" data-e="0.7">
+      <rect class="f-node" x="755" y="350" width="130" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(768 367) scale(.5833)"><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></g>
+      <text class="f-label" x="785" y="378.0">PE · Storage</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.66" data-e="0.7">
+      <rect class="f-node" x="960" y="190" width="170" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(973 207) scale(.5833)"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></g>
+      <text class="f-label" x="990" y="218.0">Azure SQL</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.68" data-e="0.72">
+      <rect class="f-node" x="960" y="270" width="170" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(973 287) scale(.5833)"><path d="M21 10h-8.35A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H13l2 2 2-2 2 2 4-4.04L21 10zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></g>
+      <text class="f-label" x="990" y="298.0">Key Vault</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.7" data-e="0.74">
+      <rect class="f-node" x="960" y="350" width="170" height="48" rx="6"/>
+      <g class="f-diamond" transform="translate(973 367) scale(.5833)"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></g>
+      <text class="f-label" x="990" y="378.0">Storage</text>
+    </g>
+
+    <!-- Identité -->
+    <g class="fxe" data-k="pop" data-s="0.76" data-e="0.8">
+      <rect class="f-node" x="960" y="78" width="170" height="44" rx="6"/>
+      <g class="f-diamond" transform="translate(973 93) scale(.5833)"><path d="M14 12h4v1.5h-4zm0 3h4v1.5h-4z"/><path d="M20 7h-5V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 0V4h2v5h-2V7zm9 13H4V9h5c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2h5v11z"/><path d="M11.08 16.18c-.64-.28-1.34-.43-2.08-.43s-1.44.15-2.08.43c-.56.24-.92.78-.92 1.39V18h6v-.43c0-.61-.36-1.15-.92-1.39z"/></g>
+      <text class="f-label" x="990" y="104.0">Entra ID</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.79" data-e="0.82"><rect class="f-chip" x="1094" y="70" width="36" height="16" rx="3"/><text class="f-chiptxt" x="1112.0" y="81.5" text-anchor="middle">MFA</text></g>
+    <text class="fxe f-mini" data-k="fade" data-s="0.84" data-e="0.88" x="1056" y="142">Managed Identity</text>
+
+    <!-- Liaisons -->
+    <path class="fxe f-link" data-k="draw" data-s="0.09" data-e="0.13" d="M150 330 L215 330"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.24" data-e="0.3" d="M355 330 L425 330"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.31" data-e="0.37" d="M555 330 L568 330 L568 263 L590 263"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.35" data-e="0.41" d="M555 330 L568 330 L568 393 L590 393"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.52" data-e="0.58" d="M655 421 L655 575"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.62" data-e="0.68" d="M720 263 L738 263 L738 214 L755 214"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.64" data-e="0.7" d="M738 263 L738 294 L755 294"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.66" data-e="0.72" d="M720 393 L738 393 L738 374 L755 374"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.68" data-e="0.74" d="M885 214 L960 214"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.7" data-e="0.76" d="M885 294 L960 294"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.72" data-e="0.78" d="M885 374 L960 374"/>
+    <path class="fxe f-idl" data-k="draw" data-s="0.78" data-e="0.84" d="M710 235 L710 106 L960 106"/>
+    <path class="fxe f-idl" data-k="draw" data-s="0.8" data-e="0.86" d="M1045 122 L1045 190"/>
+    <path class="fxe f-tick" data-k="fade" data-s="0.56" data-e="0.62" d="M485 575 L485 470"/>
+    <path class="fxe f-tick" data-k="fade" data-s="0.58" data-e="0.64" d="M825 575 L825 470"/>
+    <path class="fxe f-tick" data-k="fade" data-s="0.86" data-e="0.9" d="M335 668 L400 668"/>
+
+    <!-- Paquets qui circulent (une fois tout en place) -->
+    <path id="pp1" d="M150 330 L568 330 L568 263 L738 263 L738 214 L958 214" fill="none" stroke="none"/>
+    <path id="pp2" d="M150 330 L568 330 L568 393 L738 393 L738 374 L958 374" fill="none" stroke="none"/>
+    <circle class="f-pulse" r="5" cx="-20" cy="-20" opacity="0"/>
+    <circle class="f-pulse" r="5" cx="-20" cy="-20" opacity="0"/>
+  </svg>
+  <svg class="fx-m" viewBox="0 0 360 756" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Schéma vertical d'une landing zone Azure sécurisée : hub and spoke, pare-feu, private endpoints, Entra ID">
+    <rect class="fxe f-shield" data-k="draw" data-s="0.86" data-e="0.96" x="1" y="12" width="358" height="736" rx="22"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.94" data-e="0.98" x="18" y="7" style="fill:var(--terra)">Defender for Cloud · Zero Trust</text>
+    <rect class="fxe f-line" data-k="draw" data-s="0" data-e="0.08" x="8" y="28" width="344" height="700" rx="12" style="stroke:var(--muted);stroke-width:1.3"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.05" data-e="0.1" x="22" y="47">Abonnement Azure · Landing Zone</text>
+    <g class="fxe" data-k="pop" data-s="0.02" data-e="0.07">
+      <rect class="f-node-k" x="44" y="62" width="150" height="36" rx="6"/>
+      <path class="f-diamond" d="M56 80.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label k" x="70" y="83.8">Visiteur</text>
+    </g>
+    <path class="fxe f-link" data-k="draw" data-s="0.06" data-e="0.1" d="M119 98 L119 122"/>
+    <g class="fxe" data-k="pop" data-s="0.08" data-e="0.12">
+      <rect class="f-node" x="44" y="122" width="150" height="36" rx="6"/>
+      <path class="f-diamond" d="M56 140.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="143.8">Front Door</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.11" data-e="0.14"><rect class="f-chip" x="158" y="115" width="34" height="14" rx="3"/><text class="f-chiptxt" x="175.0" y="125.5" text-anchor="middle">WAF</text></g>
+    <rect class="fxe f-vnet" data-k="draw" data-s="0.14" data-e="0.22" x="12" y="184" width="214" height="362" rx="12"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.2" data-e="0.24" x="24" y="201" style="fill:var(--terra)">Spoke VNet · 10.1.0.0/16</text>
+    <g class="fxe" data-k="pop" data-s="0.19" data-e="0.23">
+      <rect class="f-sub" x="20" y="210" width="198" height="62" rx="8"/>
+      <text class="f-mini" x="130" y="222">Subnet · Web</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.21" data-e="0.25">
+      <rect class="f-sub" x="20" y="280" width="198" height="100" rx="8"/>
+      <text class="f-mini" x="130" y="292">Subnet · App</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.23" data-e="0.27">
+      <rect class="f-sub" x="20" y="388" width="198" height="146" rx="8"/>
+      <text class="f-mini" x="130" y="400">Subnet · PE</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.26" data-e="0.29"><rect class="f-chip sage" x="50" y="212" width="30" height="12" rx="3"/><text class="f-chiptxt sage" x="65.0" y="220.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="fade" data-s="0.27" data-e="0.3"><rect class="f-chip sage" x="50" y="282" width="30" height="12" rx="3"/><text class="f-chiptxt sage" x="65.0" y="290.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="fade" data-s="0.28" data-e="0.31"><rect class="f-chip sage" x="50" y="390" width="30" height="12" rx="3"/><text class="f-chiptxt sage" x="65.0" y="398.5" text-anchor="middle">NSG</text></g>
+    <g class="fxe" data-k="pop" data-s="0.26" data-e="0.3">
+      <rect class="f-node" x="44" y="232" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 248.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="251.8">App Gateway</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.29" data-e="0.32"><rect class="f-chip" x="158" y="225" width="34" height="14" rx="3"/><text class="f-chiptxt" x="175.0" y="235.5" text-anchor="middle">WAF</text></g>
+    <g class="fxe" data-k="pop" data-s="0.33" data-e="0.37">
+      <rect class="f-node" x="44" y="302" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 318.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="321.8">App Service</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.37" data-e="0.41">
+      <rect class="f-node" x="44" y="342" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 358.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="361.8">Functions</text>
+    </g>
+    <path class="fxe f-link" data-k="draw" data-s="0.24" data-e="0.3" d="M119 158 L119 232"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.31" data-e="0.37" d="M119 264 L119 302"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.38" data-e="0.41" d="M119 334 L119 342"/>
+    <rect class="fxe f-hub" data-k="draw" data-s="0.43" data-e="0.5" x="12" y="568" width="338" height="84" rx="12"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.48" data-e="0.52" x="24" y="585">Hub VNet · 10.0.0.0/16</text>
+    <g class="fxe" data-k="pop" data-s="0.48" data-e="0.53">
+      <rect class="f-node" x="130" y="598" width="100" height="36" rx="6"/>
+      <path class="f-diamond" d="M142 616.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="156" y="619.8">Firewall</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.52" data-e="0.56">
+      <rect class="f-node" x="24" y="598" width="100" height="36" rx="6"/>
+      <path class="f-diamond" d="M36 616.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="50" y="619.8">Bastion</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.55" data-e="0.59">
+      <rect class="f-node" x="236" y="598" width="100" height="36" rx="6"/>
+      <path class="f-diamond" d="M248 616.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="262" y="619.8">Private DNS</text>
+    </g>
+    <path class="fxe f-link" data-k="draw" data-s="0.52" data-e="0.58" d="M180 546 L180 598"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.56" data-e="0.6" x="190" y="562">UDR → Firewall</text>
+    <path class="fxe f-tick" data-k="fade" data-s="0.56" data-e="0.62" d="M74 598 L74 546"/>
+    <g class="fxe" data-k="pop" data-s="0.58" data-e="0.62">
+      <rect class="f-node" x="105" y="676" width="150" height="36" rx="6"/>
+      <path class="f-diamond" d="M117 694.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="131" y="697.8">Monitor</text>
+    </g>
+    <path class="fxe f-tick" data-k="fade" data-s="0.6" data-e="0.64" d="M180 676 L180 652"/>
+    <rect class="fxe f-dash" data-k="draw" data-s="0.6" data-e="0.64" x="236" y="384" width="114" height="156" rx="10"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.62" data-e="0.66" x="246" y="399">Private Link</text>
+    <g class="fxe" data-k="pop" data-s="0.62" data-e="0.66">
+      <rect class="f-node" x="44" y="414" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 430.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="433.8">PE · SQL</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.64" data-e="0.68">
+      <rect class="f-node" x="44" y="454" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 470.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="473.8">PE · Vault</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.66" data-e="0.7">
+      <rect class="f-node" x="44" y="494" width="150" height="32" rx="6"/>
+      <path class="f-diamond" d="M56 510.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="70" y="513.8">PE · Storage</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.66" data-e="0.7">
+      <rect class="f-node" x="242" y="414" width="102" height="32" rx="6"/>
+      <path class="f-diamond" d="M254 430.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="268" y="433.8">Azure SQL</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.68" data-e="0.72">
+      <rect class="f-node" x="242" y="454" width="102" height="32" rx="6"/>
+      <path class="f-diamond" d="M254 470.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="268" y="473.8">Key Vault</text>
+    </g>
+    <g class="fxe" data-k="pop" data-s="0.7" data-e="0.74">
+      <rect class="f-node" x="242" y="494" width="102" height="32" rx="6"/>
+      <path class="f-diamond" d="M254 510.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="268" y="513.8">Storage</text>
+    </g>
+    <path class="fxe f-link" data-k="draw" data-s="0.62" data-e="0.68" d="M44 358 L30 358 L30 510"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.64" data-e="0.69" d="M30 430 L44 430"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.65" data-e="0.7" d="M30 470 L44 470"/>
+    <path class="fxe f-link" data-k="draw" data-s="0.66" data-e="0.71" d="M30 510 L44 510"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.68" data-e="0.74" d="M194 430 L242 430"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.7" data-e="0.76" d="M194 470 L242 470"/>
+    <path class="fxe f-plink" data-k="draw" data-s="0.72" data-e="0.78" d="M194 510 L242 510"/>
+    <g class="fxe" data-k="pop" data-s="0.76" data-e="0.8">
+      <rect class="f-node" x="242" y="122" width="102" height="36" rx="6"/>
+      <path class="f-diamond" d="M254 140.0l4.5-4.5 4.5 4.5-4.5 4.5z"/>
+      <text class="f-label" x="268" y="143.8">Entra ID</text>
+    </g>
+    <g class="fxe" data-k="fade" data-s="0.79" data-e="0.82"><rect class="f-chip" x="306" y="115" width="34" height="14" rx="3"/><text class="f-chiptxt" x="323.0" y="125.5" text-anchor="middle">MFA</text></g>
+    <path class="fxe f-idl" data-k="draw" data-s="0.78" data-e="0.84" d="M194 318 L231 318 L231 140 L242 140"/>
+    <path class="fxe f-idl" data-k="draw" data-s="0.8" data-e="0.86" d="M293 158 L293 414"/>
+    <text class="fxe f-mini" data-k="fade" data-s="0.84" data-e="0.88" x="287" y="330" transform="rotate(-90 287 330)">Managed Identity</text>
+    <path id="pm1" d="M119 98 L119 358 L44 358 L30 358 L30 430 L44 430 L242 430" fill="none" stroke="none"/>
+    <path id="pm2" d="M119 98 L119 358 L44 358 L30 358 L30 510 L44 510 L242 510" fill="none" stroke="none"/>
+    <circle class="f-pulse" r="4.5" cx="-20" cy="-20" opacity="0"/>
+    <circle class="f-pulse" r="4.5" cx="-20" cy="-20" opacity="0"/>
+  </svg>
+
+  <div class="fx-cap" id="fx-cap"><div class="n">01</div><div class="t">Un visiteur arrive <em>sur votre site</em>.</div></div>
+  <div class="fx-prog"><i></i></div>
+  <div class="fx-hint" id="fx-hint"><span class="arr">↓</span><span>Scrollez pour commencer</span></div>
+  <button class="fx-skip" id="fx-skip" type="button">Passer →</button>
+</div>
 
 <!-- Intro overlay -->
 <div class="intro" id="intro">
@@ -845,7 +1431,6 @@
     <a href="#" data-open="work">Services</a>
     <a href="#" data-open="skills">Stack</a>
     <a href="#" data-open="journey">Parcours</a>
-    <a href="futureskycloud.html" target="_blank" rel="noopener">My Startup ↗</a>
     <a href="#" class="pill" data-open="contact"><span class="dot"></span>Missions freelance ouvertes</a>
   </nav>
 </header>
@@ -853,6 +1438,7 @@
 <!-- Hero stage -->
 <main class="stage">
   <div class="backnum">AZ</div>
+  <svg id="circuit" aria-hidden="true"></svg>
 
   <section class="hero">
     <div class="hero-meta">
@@ -865,145 +1451,75 @@
     </h1>
     <div class="hero-sub">
       <div class="vline"></div>
-      <p>Stéphane Manlango — Architecte Solutions Azure certifié. Je conçois, sécurise et modernise des environnements cloud pour PME &amp; startups : architecture, migration, audit sécurité, développement web &amp; SEO.</p>
+      <p>Stéphane Manlango, architecte Solutions Azure certifié. Je conçois, sécurise et modernise des environnements cloud pour PME &amp; startups : architecture, migration, audit sécurité, développement web &amp; SEO.</p>
     </div>
   </section>
 
-  <!-- Hotspot objects -->
-  <div class="objects">
-    <button class="obj o-about" data-open="about" data-label="À propos">
-      <span class="obj-num">01</span>
-      <span class="obj-lab">À propos</span>
-      <span class="shape s-cards">
-        <span class="c c1"></span>
-        <span class="c c2"></span>
-        <span class="c c3"></span>
-      </span>
+  <!-- Les cinq salles -->
+  <div class="rooms">
+    <button class="room" data-open="about" data-label="À propos" style="--i:0">
+      <span class="rm-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+      <span class="rm-txt"><span class="rm-num">01</span><span class="rm-t">À propos</span><span class="rm-s">Qui je suis, mes certifications</span></span>
+      <span class="rm-ar">→</span>
     </button>
-
-    <button class="obj o-work" data-open="work" data-label="Services">
-      <span class="obj-num">02</span>
-      <span class="obj-lab">Services</span>
-      <span class="shape s-mon">
-        <span class="screen"><i></i><i></i><i></i><i></i></span>
-        <span class="stand"></span>
-        <span class="base"></span>
-      </span>
+    <button class="room" data-open="work" data-label="Services" style="--i:1">
+      <span class="rm-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg></span>
+      <span class="rm-txt"><span class="rm-num">02</span><span class="rm-t">Services</span><span class="rm-s">Quatre piliers, un interlocuteur</span></span>
+      <span class="rm-ar">→</span>
     </button>
-
-    <button class="obj o-skills" data-open="skills" data-label="Stack">
-      <span class="obj-num">03</span>
-      <span class="obj-lab">Stack</span>
-      <span class="shape s-tool">
-        <span class="lid"></span>
-        <span class="body"><span></span><span></span><span></span><span></span><span></span></span>
-      </span>
+    <button class="room" data-open="skills" data-label="Stack" style="--i:2">
+      <span class="rm-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.99 18.54-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16zm0-11.47L17.74 9 12 13.47 6.26 9 12 4.53z"/></svg></span>
+      <span class="rm-txt"><span class="rm-num">03</span><span class="rm-t">Stack</span><span class="rm-s">Azure, sécurité, développement</span></span>
+      <span class="rm-ar">→</span>
     </button>
-
-    <button class="obj o-journey" data-open="journey" data-label="Parcours">
-      <span class="obj-num">04</span>
-      <span class="obj-lab">Parcours</span>
-      <span class="shape s-comp">
-        <span class="ring">
-          <span class="needle"></span>
-          <span class="dot-c"></span>
-        </span>
-      </span>
+    <button class="room" data-open="journey" data-label="Parcours" style="--i:3">
+      <span class="rm-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5 7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/></svg></span>
+      <span class="rm-txt"><span class="rm-num">04</span><span class="rm-t">Parcours</span><span class="rm-s">Études, stages, projets</span></span>
+      <span class="rm-ar">→</span>
     </button>
-
-    <button class="obj o-contact" data-open="contact" data-label="Contact">
-      <span class="obj-num">05</span>
-      <span class="obj-lab">Contact</span>
-      <span class="shape s-env">
-        <span class="body"></span>
-        <span class="stamp">M</span>
-      </span>
+    <button class="room" data-open="contact" data-label="Contact" style="--i:4">
+      <span class="rm-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"/></svg></span>
+      <span class="rm-txt"><span class="rm-num">05</span><span class="rm-t">Contact</span><span class="rm-s">Parlons de votre projet</span></span>
+      <span class="rm-ar">→</span>
     </button>
   </div>
 </main>
 
-<!-- Footer -->
-<div class="footer">
-  <div class="clock">
-    <span class="dot"></span>
-    <span id="loc">Casablanca, MA</span>
-    <span style="opacity:.4;margin:0 4px">·</span>
-    <span id="clk">00:00:00</span>
-  </div>
-  <div class="scroll-hint">
-    <span>Survolez · Cliquez · Explorez</span>
-    <span class="line"></span>
-  </div>
-</div>
-
-<!-- Floating mobile nav -->
-<nav class="mob-nav">
-  <button class="mob-btn" data-open="about">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    À propos
-  </button>
-  <button class="mob-btn" data-open="work">
-    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-    Services
-  </button>
-  <button class="mob-btn" data-open="skills">
-    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-    Stack
-  </button>
-  <button class="mob-btn" data-open="journey">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4"/><circle cx="12" cy="12" r="2"/></svg>
-    Parcours
-  </button>
-  <button class="mob-btn" data-open="contact">
-    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    Contact
-  </button>
-  <a class="mob-btn" href="futureskycloud.html" target="_blank" rel="noopener" style="text-decoration:none">
-    <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-    FSC
-  </a>
-</nav>
-
 <!-- Overlay backdrop + panels -->
 <div class="overlay" id="overlay"></div>
+<svg id="trace" aria-hidden="true"></svg>
+<div id="rail" aria-label="Navigation entre les salles"></div>
 
 <!-- ABOUT -->
 <aside class="panel" id="p-about">
-  <button class="panel-close" data-close>✕</button>
+  <button class="panel-close" data-close aria-label="Fermer"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+  <div class="sheet"><span><b>Planche 01/05</b> · Identité</span><span>Rév. A</span></div>
   <div class="panel-tag">Salle 01 · À propos</div>
   <h2 class="panel-title">Azure <em>Solutions</em><br>Architect Expert</h2>
   <p class="panel-lead">
-    Manlango Biedan — Architecte Cloud Azure certifié <b>AZ-305</b> &amp; <b>AZ-104</b>. Je conçois, sécurise et modernise des environnements Azure pour PME &amp; startups : architecture, migration, audit sécurité, formations, développement web et SEO. Un seul interlocuteur, une offre complète.
+    Manlango Biedan, architecte Cloud Azure certifié <b>AZ-305</b> &amp; <b>AZ-104</b>. Je conçois, sécurise et modernise des environnements Azure pour PME &amp; startups : architecture, migration, audit sécurité, formations, développement web et SEO. Un seul interlocuteur, une offre complète.
   </p>
 
   <div class="panel-section">
     <h4>Certifications Microsoft</h4>
-    <div class="chips">
-      <span class="chip terra">AZ-305 · Solutions Architect Expert</span>
-      <span class="chip terra">AZ-104 · Administrator Associate</span>
-      <span class="chip">AZ-500 · Security Engineer</span>
+    <div class="seals">
+      <div class="seal hot"><div class="seal-ring"><span>AZ-305</span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 11.99 20.56 9.2l.34-3.69-3.61-.82L15.4 1.5 12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 11.99l2.44 2.79-.34 3.7 3.61.82 1.89 3.2 3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69 2.44-2.8zm-3.95 1.48-.56.65.08.85.18 1.95-1.9.43-.84.19-.44.74-.99 1.68-1.78-.77-.8-.34-.79.34-1.78.77-.99-1.67-.44-.74-.84-.19-1.9-.43.18-1.96.08-.85-.56-.65L3.67 12l1.29-1.48.56-.65-.09-.86-.18-1.94 1.9-.43.84-.19.44-.74.99-1.68 1.78.77.8.34.79-.34 1.78-.77.99 1.68.44.74.84.19 1.9.43-.18 1.95-.08.85.56.65 1.29 1.47-1.28 1.48z"/><path d="m10.09 13.75-2.32-2.33-1.48 1.49 3.8 3.81 7.34-7.36-1.48-1.49z"/></svg></div><b>Solutions Architect Expert</b></div>
+      <div class="seal hot"><div class="seal-ring"><span>AZ-104</span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 11.99 20.56 9.2l.34-3.69-3.61-.82L15.4 1.5 12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 11.99l2.44 2.79-.34 3.7 3.61.82 1.89 3.2 3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69 2.44-2.8zm-3.95 1.48-.56.65.08.85.18 1.95-1.9.43-.84.19-.44.74-.99 1.68-1.78-.77-.8-.34-.79.34-1.78.77-.99-1.67-.44-.74-.84-.19-1.9-.43.18-1.96.08-.85-.56-.65L3.67 12l1.29-1.48.56-.65-.09-.86-.18-1.94 1.9-.43.84-.19.44-.74.99-1.68 1.78.77.8.34.79-.34 1.78-.77.99 1.68.44.74.84.19 1.9.43-.18 1.95-.08.85.56.65 1.29 1.47-1.28 1.48z"/><path d="m10.09 13.75-2.32-2.33-1.48 1.49 3.8 3.81 7.34-7.36-1.48-1.49z"/></svg></div><b>Administrator Associate</b></div>
+      <div class="seal"><div class="seal-ring"><span>AZ-500</span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 11.99 20.56 9.2l.34-3.69-3.61-.82L15.4 1.5 12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 11.99l2.44 2.79-.34 3.7 3.61.82 1.89 3.2 3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69 2.44-2.8zm-3.95 1.48-.56.65.08.85.18 1.95-1.9.43-.84.19-.44.74-.99 1.68-1.78-.77-.8-.34-.79.34-1.78.77-.99-1.67-.44-.74-.84-.19-1.9-.43.18-1.96.08-.85-.56-.65L3.67 12l1.29-1.48.56-.65-.09-.86-.18-1.94 1.9-.43.84-.19.44-.74.99-1.68 1.78.77.8.34.79-.34 1.78-.77.99 1.68.44.74.84.19 1.9.43-.18 1.95-.08.85.56.65 1.29 1.47-1.28 1.48z"/><path d="m10.09 13.75-2.32-2.33-1.48 1.49 3.8 3.81 7.34-7.36-1.48-1.49z"/></svg></div><b>Security Engineer</b></div>
     </div>
   </div>
 
   <div class="panel-section">
     <h4>Ce qui me distingue</h4>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-date">Expertise</div>
-        <div class="tl-body"><h5>Certifié <em>Microsoft</em></h5><p>AZ-305 (Architect Expert) et AZ-104 (Administrator). Maîtrise complète du design d'architectures Azure : compute, réseau, identité, données, sécurité, observabilité.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Approche</div>
-        <div class="tl-body"><h5>Un seul <em>interlocuteur</em></h5><p>De la stratégie cloud au code livré, je couvre toute la chaîne — vous évitant de jongler entre architecte, dev et auditeur sécurité.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Cibles</div>
-        <div class="tl-body"><h5>PME <em>&amp;</em> startups first</h5><p>Pragmatisme avant tout : architectures bien dimensionnées, ROI mesurable, transfert de compétences à l'équipe interne.</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Origine</div>
-        <div class="tl-body"><h5>Côte d'Ivoire <em>→</em> Maroc</h5><p>Né à Abidjan, formé à Casablanca (IPP, Génie Informatique). Bilingue français-anglais.</p></div>
-      </div>
+    <div class="facts">
+      <div class="fact"><div class="fact-top"><span class="fact-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.68 13.69 12 11.93l2.31 1.76-.88-2.85L15.75 9h-2.84L12 6.19 11.09 9H8.25l2.31 1.84-.88 2.85zM20 10c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 2.03.76 3.87 2 5.28V23l6-2 6 2v-7.72A7.96 7.96 0 0 0 20 10zm-8-6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 15-4 1.02v-3.1c1.18.68 2.54 1.08 4 1.08s2.82-.4 4-1.08v3.1L12 19z"/></svg></span><span class="fact-k">Expertise</span></div>
+        <h5>Certifié <em>Microsoft</em></h5><p>AZ-305 (Architect Expert) et AZ-104 (Administrator). Maîtrise complète du design d'architectures Azure : compute, réseau, identité, données, sécurité, observabilité.</p></div>
+      <div class="fact"><div class="fact-top"><span class="fact-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 19.85c-.18.18-.5.21-.71 0a.504.504 0 0 1 0-.71l3.39-3.39-1.41-1.41-3.39 3.39c-.19.2-.51.19-.71 0a.504.504 0 0 1 0-.71l3.39-3.39-1.41-1.41-3.39 3.39c-.18.18-.5.21-.71 0a.513.513 0 0 1 0-.71l3.39-3.39-1.42-1.41-3.39 3.39c-.18.18-.5.21-.71 0a.513.513 0 0 1 0-.71L9.52 8.4l1.87 1.86c.95.95 2.59.94 3.54 0 .98-.98.98-2.56 0-3.54l-1.86-1.86.28-.28c.78-.78 2.05-.78 2.83 0l4.24 4.24c.78.78.78 2.05 0 2.83l-8.2 8.2zm9.61-6.78a4.008 4.008 0 0 0 0-5.66l-4.24-4.24a4.008 4.008 0 0 0-5.66 0l-.28.28-.28-.28a4.008 4.008 0 0 0-5.66 0L2.17 6.71a3.992 3.992 0 0 0-.4 5.19l1.45-1.45a2 2 0 0 1 .37-2.33l3.54-3.54c.78-.78 2.05-.78 2.83 0l3.56 3.56c.18.18.21.5 0 .71-.21.21-.53.18-.71 0L9.52 5.57l-5.8 5.79c-.98.97-.98 2.56 0 3.54.39.39.89.63 1.42.7a2.458 2.458 0 0 0 2.12 2.12 2.458 2.458 0 0 0 2.12 2.12c.07.54.31 1.03.7 1.42.47.47 1.1.73 1.77.73.67 0 1.3-.26 1.77-.73l8.21-8.19z"/></svg></span><span class="fact-k">Approche</span></div>
+        <h5>Un seul <em>interlocuteur</em></h5><p>De la stratégie cloud au code livré, je couvre toute la chaîne, ce qui vous évite de jongler entre architecte, dev et auditeur sécurité.</p></div>
+      <div class="fact"><div class="fact-top"><span class="fact-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15c-.83 0-1.58.34-2.12.88C2.7 17.06 2 22 2 22s4.94-.7 6.12-1.88A2.996 2.996 0 0 0 6 15zm.71 3.71c-.28.28-2.17.76-2.17.76s.47-1.88.76-2.17c.17-.19.42-.3.7-.3a1.003 1.003 0 0 1 .71 1.71zm10.71-5.06c6.36-6.36 4.24-11.31 4.24-11.31S16.71.22 10.35 6.58l-2.49-.5a2.03 2.03 0 0 0-1.81.55L2 10.69l5 2.14L11.17 17l2.14 5 4.05-4.05c.47-.47.68-1.15.55-1.81l-.49-2.49zM7.41 10.83l-1.91-.82 1.97-1.97 1.44.29c-.57.83-1.08 1.7-1.5 2.5zm6.58 7.67-.82-1.91c.8-.42 1.67-.93 2.49-1.5l.29 1.44-1.96 1.97zM16 12.24c-1.32 1.32-3.38 2.4-4.04 2.73l-2.93-2.93c.32-.65 1.4-2.71 2.73-4.04 4.68-4.68 8.23-3.99 8.23-3.99s.69 3.55-3.99 8.23zM15 11c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg></span><span class="fact-k">Cibles</span></div>
+        <h5>PME <em>&amp;</em> startups first</h5><p>Pragmatisme avant tout : architectures bien dimensionnées, ROI mesurable, transfert de compétences à l'équipe interne.</p></div>
+      <div class="fact"><div class="fact-top"><span class="fact-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-.61.08-1.21.21-1.78L8.99 15v1c0 1.1.9 2 2 2v1.93C7.06 19.43 4 16.07 4 12zm13.89 5.4c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41C17.92 5.77 20 8.65 20 12c0 2.08-.81 3.98-2.11 5.4z"/></svg></span><span class="fact-k">Origine</span></div>
+        <h5>Côte d'Ivoire <em>→</em> Maroc</h5><p>Né à Abidjan, formé à Casablanca (IPP, Génie Informatique). Bilingue français-anglais.</p></div>
     </div>
   </div>
 
@@ -1026,20 +1542,30 @@
 
 <!-- WORK -->
 <aside class="panel" id="p-work">
-  <button class="panel-close" data-close>✕</button>
+  <button class="panel-close" data-close aria-label="Fermer"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+  <div class="sheet"><span><b>Planche 02/05</b> · Plan masse</span><span>Éch. 1:50</span></div>
   <div class="panel-tag">Salle 02 · Services</div>
   <h2 class="panel-title">Une offre <em>complète</em>,<br>un seul interlocuteur</h2>
   <p class="panel-lead">
-    Architecture Azure, audit sécurité, formations cloud, développement web &amp; SEO — quatre piliers livrés par un seul expert certifié.
+    Architecture Azure, audit sécurité, formations cloud, développement web &amp; SEO : quatre piliers livrés par un seul expert certifié.
   </p>
 
   <div class="panel-section">
-    <div class="tl">
-      <div class="tl-item"><div class="tl-date">01</div><div class="tl-body"><h5>Consulting <em>Azure</em></h5><p>Architecture, migration, audit sécurité. Certifié AZ-305 · AZ-104 · AZ-500.</p></div></div>
-      <div class="tl-item"><div class="tl-date">02</div><div class="tl-body"><h5><em>Formations</em> cloud &amp; IA</h5><p>21 modules en ligne : Azure, IA générale, Claude &amp; Anthropic. Tous niveaux.</p></div></div>
-      <div class="tl-item"><div class="tl-date">03</div><div class="tl-body"><h5>Développement <em>web</em></h5><p>Sites WordPress &amp; applications full-stack. Design responsive, Core Web Vitals.</p></div></div>
-      <div class="tl-item"><div class="tl-date">04</div><div class="tl-body"><h5>SEO <em>Google</em></h5><p>Audit, optimisation on-page, suivi &amp; reporting. Search Console, SEMrush, Ahrefs.</p></div></div>
+    <div class="plan">
+      <div class="plan-cols"><div class="ax"><span>A</span></div><div class="ax"><span>B</span></div></div>
+      <div class="plan-rows"><div class="ax"><span>1</span></div><div class="ax"><span>2</span></div></div>
+      <div class="plan-grid">
+        <article class="room-p" style="--i:0"><div class="rp-top"><span class="rp-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95A5.469 5.469 0 0 1 12 6m0-2C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96A7.49 7.49 0 0 0 12 4z"/></svg></span><span class="rp-n">01</span></div>
+          <h5>Consulting <em>Azure</em></h5><p>Architecture, migration, audit sécurité. Certifié AZ-305 · AZ-104 · AZ-500.</p><i class="door"></i></article>
+        <article class="room-p" style="--i:1"><div class="rp-top"><span class="rp-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg></span><span class="rp-n">02</span></div>
+          <h5><em>Formations</em> cloud &amp; IA</h5><p>21 modules en ligne : Azure, IA générale, Claude &amp; Anthropic. Tous niveaux.</p><i class="door"></i></article>
+        <article class="room-p" style="--i:2"><div class="rp-top"><span class="rp-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></span><span class="rp-n">03</span></div>
+          <h5>Développement <em>web</em></h5><p>Sites WordPress &amp; applications full-stack. Design responsive, Core Web Vitals.</p><i class="door"></i></article>
+        <article class="room-p" style="--i:3"><div class="rp-top"><span class="rp-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span><span class="rp-n">04</span></div>
+          <h5>SEO <em>Google</em></h5><p>Audit, optimisation on-page, suivi &amp; reporting. Search Console, SEMrush, Ahrefs.</p><i class="door"></i></article>
+      </div>
     </div>
+    <div class="plan-cap">Plan niveau 0 · quatre pièces · une seule porte d'entrée</div>
   </div>
 
   <a class="panel-cta" href="futureskycloud.html" target="_blank" rel="noopener"><span>Voir l'offre complète</span><span class="ar">→</span></a>
@@ -1048,15 +1574,17 @@
 
 <!-- SKILLS -->
 <aside class="panel" id="p-skills">
-  <button class="panel-close" data-close>✕</button>
+  <button class="panel-close" data-close aria-label="Fermer"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+  <div class="sheet"><span><b>Planche 03/05</b> · Coupe A-A'</span><span>Éch. 1:20</span></div>
   <div class="panel-tag">Salle 03 · Stack technique</div>
   <h2 class="panel-title">Cloud <em>first</em>,<br>full-stack ready</h2>
   <p class="panel-lead">
-    Le cœur du métier : Azure. Autour : tout ce qui permet de livrer un projet de bout en bout — sécurité, dev, données, web.
+    Le cœur du métier : Azure. Autour, tout ce qui permet de livrer un projet de bout en bout : sécurité, dev, données, web.
   </p>
 
-  <div class="panel-section">
-    <h4>Azure — Cœur de métier</h4>
+  <div class="panel-section storey" style="--i:0">
+    <span class="lvl"><b>N+6</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95A5.469 5.469 0 0 1 12 6m0-2C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96A7.49 7.49 0 0 0 12 4z"/></svg> Azure · Cœur de métier</h4>
     <div class="skill hl"><div class="skill-name">AZ-305 Architect</div><div class="skill-bar"><i style="--v:.95"></i></div><div class="skill-pct">95</div></div>
     <div class="skill hl"><div class="skill-name">AZ-104 Admin</div><div class="skill-bar"><i style="--v:.92"></i></div><div class="skill-pct">92</div></div>
     <div class="skill hl"><div class="skill-name">AZ-500 Security</div><div class="skill-bar"><i style="--v:.85"></i></div><div class="skill-pct">85</div></div>
@@ -1064,8 +1592,9 @@
     <div class="skill"><div class="skill-name">Migration / IaaS</div><div class="skill-bar"><i style="--v:.85"></i></div><div class="skill-pct">85</div></div>
   </div>
 
-  <div class="panel-section">
-    <h4>Services Azure</h4>
+  <div class="panel-section storey" style="--i:1">
+    <span class="lvl"><b>N+5</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 15v4H5v-4h14m1-2H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 18.5c-.82 0-1.5-.67-1.5-1.5s.68-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 5v4H5V5h14m1-2H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 8.5c-.82 0-1.5-.67-1.5-1.5S6.18 5.5 7 5.5s1.5.68 1.5 1.5S7.83 8.5 7 8.5z"/></svg> Services Azure</h4>
     <div class="chips">
       <span class="chip terra">App Service</span>
       <span class="chip terra">Azure Storage</span>
@@ -1081,8 +1610,9 @@
     </div>
   </div>
 
-  <div class="panel-section">
-    <h4>Sécurité &amp; Identité</h4>
+  <div class="panel-section storey" style="--i:2">
+    <span class="lvl"><b>N+4</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm6 9.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83v-4.7l6-2.25 6 2.25v4.7z"/></svg> Sécurité &amp; Identité</h4>
     <div class="chips">
       <span class="chip terra">MFA · Conditional Access</span>
       <span class="chip">Zero Trust</span>
@@ -1092,8 +1622,9 @@
     </div>
   </div>
 
-  <div class="panel-section">
-    <h4>Développement</h4>
+  <div class="panel-section storey" style="--i:3">
+    <span class="lvl"><b>N+3</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg> Développement</h4>
     <div class="chips">
       <span class="chip">C# / .NET</span>
       <span class="chip">ASP.NET Core MVC / API</span>
@@ -1105,8 +1636,9 @@
     </div>
   </div>
 
-  <div class="panel-section">
-    <h4>Web &amp; SEO</h4>
+  <div class="panel-section storey" style="--i:4">
+    <span class="lvl"><b>N+2</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg> Web &amp; SEO</h4>
     <div class="chips">
       <span class="chip terra">WordPress</span>
       <span class="chip">HTML / CSS / Bootstrap</span>
@@ -1118,8 +1650,9 @@
     </div>
   </div>
 
-  <div class="panel-section">
-    <h4>Bases de données</h4>
+  <div class="panel-section storey" style="--i:5">
+    <span class="lvl"><b>N+1</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg> Bases de données</h4>
     <div class="chips">
       <span class="chip">Azure SQL</span>
       <span class="chip">MySQL</span>
@@ -1128,8 +1661,9 @@
     </div>
   </div>
 
-  <div class="panel-section">
-    <h4>Langues</h4>
+  <div class="panel-section storey" style="--i:6">
+    <span class="lvl"><b>N+0</b><i></i></span>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg> Langues</h4>
     <div class="skill"><div class="skill-name">Français</div><div class="skill-bar"><i style="--v:1"></i></div><div class="skill-pct">C2</div></div>
     <div class="skill"><div class="skill-name">Anglais</div><div class="skill-bar"><i style="--v:.65"></i></div><div class="skill-pct">B2</div></div>
   </div>
@@ -1137,22 +1671,23 @@
 
 <!-- JOURNEY -->
 <aside class="panel" id="p-journey">
-  <button class="panel-close" data-close>✕</button>
+  <button class="panel-close" data-close aria-label="Fermer"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+  <div class="sheet"><span><b>Planche 04/05</b> · Chronologie</span><span>Éch. 1 an</span></div>
   <div class="panel-tag">Salle 04 · Parcours</div>
   <h2 class="panel-title">Une <em>boussole</em><br>vers le code</h2>
   <p class="panel-lead">
-    De la Côte d'Ivoire au Maroc, en passant par le Ghana — un parcours d'études en ingénierie informatique ponctué de stages et de projets concrets.
+    De la Côte d'Ivoire au Maroc, en passant par le Ghana. Un parcours d'études en ingénierie informatique ponctué de stages et de projets concrets.
   </p>
 
-  <div class="panel-section">
-    <h4>Expérience</h4>
+  <div class="panel-section exp">
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg> Expérience</h4>
     <div class="tl">
       <div class="tl-item">
-        <div class="tl-date">2022 — 2023</div>
+        <div class="tl-date">2022 → 2023</div>
         <div class="tl-body">
           <h5>Stage · <em>Mobiarchitects</em></h5>
           <div class="tl-place">Casablanca · Maroc</div>
-          <p>Développement d'une solution web & mobile pour un cabinet d'architecture.</p>
+          <p>Développement d'une solution web &amp; mobile pour un cabinet d'architecture.</p>
           <ul>
             <li>Déploiement Azure App Service (Linux) et Azure Storage</li>
             <li>Développement Xamarin + ASP.NET Core MVC / API</li>
@@ -1161,11 +1696,11 @@
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">2018 — 2019</div>
+        <div class="tl-date">2018 → 2019</div>
         <div class="tl-body">
           <h5>Stage · <em>Caplogistics SA</em></h5>
           <div class="tl-place">Côte d'Ivoire</div>
-          <p>Assistant administrateur réseau & sécurité.</p>
+          <p>Assistant administrateur réseau &amp; sécurité.</p>
           <ul>
             <li>Installation et configuration de Windows Server 2012R2</li>
             <li>Mise en place d'un pare-feu FortiGate</li>
@@ -1177,7 +1712,7 @@
   </div>
 
   <div class="panel-section">
-    <h4>Projets universitaires</h4>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3h7zM7 9H4V5h3v4zm10 6h3v4h-3v-4zm0-10h3v4h-3V5z"/></svg> Projets universitaires</h4>
     <div class="tl">
       <div class="tl-item">
         <div class="tl-date">2020</div>
@@ -1191,7 +1726,7 @@
   </div>
 
   <div class="panel-section">
-    <h4>Formation</h4>
+    <h4><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg> Formation</h4>
     <div class="tl">
       <div class="tl-item">
         <div class="tl-date">2022 →</div>
@@ -1211,7 +1746,8 @@
 
 <!-- CONTACT -->
 <aside class="panel" id="p-contact">
-  <button class="panel-close" data-close>✕</button>
+  <button class="panel-close" data-close aria-label="Fermer"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg></button>
+  <div class="sheet"><span><b>Planche 05/05</b> · Cartouche</span><span>Rév. A</span></div>
   <div class="panel-tag">Salle 05 · Contact</div>
   <h2 class="panel-title">Travaillons <em>ensemble.</em></h2>
   <p class="panel-lead">
@@ -1220,16 +1756,19 @@
 
   <div class="contact-list">
     <a class="contact-row" href="mailto:ManlangoStephane@outlook.com">
+      <span class="tb-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"/></svg></span>
       <span class="ck">Email</span>
       <span class="cv">ManlangoStephane@outlook.com</span>
       <span class="ca">→</span>
     </a>
     <a class="contact-row" href="tel:+212623973365">
+      <span class="tb-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57a.84.84 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.149 15.149 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1z"/></svg></span>
       <span class="ck">Tél.</span>
       <span class="cv">+212 62 39 73 365</span>
       <span class="ca">→</span>
     </a>
     <a class="contact-row" href="#">
+      <span class="tb-ico"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/></svg></span>
       <span class="ck">Statut</span>
       <span class="cv" style="color:var(--terra)">Missions freelance ouvertes</span>
       <span class="ca">●</span>
@@ -1239,16 +1778,17 @@
   <div class="panel-section">
     <h4>Pour quel type de projet ?</h4>
     <div class="chips">
-      <span class="chip terra">Architecture Azure</span>
-      <span class="chip">Audit sécurité</span>
-      <span class="chip">Audit coûts Azure</span>
-      <span class="chip">Migration Cloud</span>
-      <span class="chip sage">Développement Web</span>
-      <span class="chip">SEO</span>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="Architecture Azure">Architecture Azure</button>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="Audit sécurité">Audit sécurité</button>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="Audit coûts Azure">Audit coûts Azure</button>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="Migration Cloud">Migration Cloud</button>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="Développement Web">Développement Web</button>
+      <button type="button" class="chip pick" aria-pressed="false" data-v="SEO">SEO</button>
     </div>
+    <div class="brief"><span class="brief-k">Brief</span><span class="brief-v" id="brief-v">Choisissez un ou plusieurs types de projet</span></div>
   </div>
 
-  <a class="panel-cta" href="mailto:ManlangoStephane@outlook.com"><span>Envoyer un message</span><span class="ar">→</span></a>
+  <a class="panel-cta" id="mail-cta" href="mailto:ManlangoStephane@outlook.com"><span>Envoyer un message</span><span class="ar">→</span></a>
   <a class="panel-cta" href="https://wa.me/212623973365" target="_blank" rel="noopener" style="background:#1a9e4a;border-color:#1a9e4a;color:#fff;margin-top:12px"><span>WhatsApp</span><span class="ar">→</span></a>
 </aside>
 
@@ -1316,29 +1856,7 @@ document.querySelectorAll('[data-close]').forEach(el => {
 overlay.addEventListener('click', closePanel);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
-/* ============================================================
-   Parallax on objects
-============================================================ */
-const objects = document.querySelectorAll('.obj');
-document.addEventListener('mousemove', e => {
-  const nx = e.clientX / window.innerWidth  - .5;
-  const ny = e.clientY / window.innerHeight - .5;
-  objects.forEach((o,i) => {
-    const depth = (i % 3 + 1) * 4;
-    o.style.translate = `${(nx*depth).toFixed(2)}px ${(ny*depth).toFixed(2)}px`;
-  });
-});
 
-/* ============================================================
-   Clock (Casablanca = UTC+1 / UTC+0 depending; use local)
-============================================================ */
-const clk = document.getElementById('clk');
-function pad(n){return String(n).padStart(2,'0');}
-function tickClock() {
-  const d = new Date();
-  clk.textContent = pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
-}
-setInterval(tickClock, 1000); tickClock();
 
 /* ============================================================
    Intro
@@ -1349,6 +1867,456 @@ window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('gm').classList.add('in'), 600);
   setTimeout(() => document.getElementById('intro').classList.add('done'), 2200);
 });
+
+/* ============================================================
+   Scroll FX : l'architecture Azure se construit au scroll
+   - la page ne défile pas (overflow:hidden) : on pilote une
+     progression 0 → 1 avec molette / tactile / clavier
+   - à 1, le calque s'efface et la scène existante apparaît
+   - ?fx=0 dans l'URL ou prefers-reduced-motion : on saute
+============================================================ */
+(function () {
+  const fx = document.getElementById('fx');
+  if (!fx) return;
+
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const ease  = t => 1 - Math.pow(1 - t, 3);
+
+  const els   = [...fx.querySelectorAll('.fxe')];
+  const P0    = 0.16;   /* le schéma démarre après l'introduction */
+  const introEl = document.getElementById('fx-intro');
+  const cap   = document.getElementById('fx-cap');
+  const capN  = cap.querySelector('.n');
+  const capT  = cap.querySelector('.t');
+  const bar   = fx.querySelector('.fx-prog i');
+  const hint  = document.getElementById('fx-hint');
+  const skip  = document.getElementById('fx-skip');
+  const deskSvg = fx.querySelector('svg.fx-d'), mobSvg = fx.querySelector('svg.fx-m');
+  const mq = window.matchMedia('(max-width:900px)');
+  const sets = [
+    { svg: deskSvg, pulses: [...deskSvg.querySelectorAll('.f-pulse')], paths: ['pp1', 'pp2'].map(id => document.getElementById(id)) },
+    { svg: mobSvg,  pulses: [...mobSvg.querySelectorAll('.f-pulse')],  paths: ['pm1', 'pm2'].map(id => document.getElementById(id)) }
+  ];
+
+  /* Mobile : la caméra suit la construction (le texte reste lisible) */
+  const CAM = [[0, 0], [0.12, 0], [0.22, 110], [0.42, 150], [0.50, 270], [0.58, 270], [0.66, 130], [0.80, 70], [0.86, 70]];
+  const VBW = 360, FULLH = 756;
+  const sstep = t => t * t * (3 - 2 * t);
+  function camera(q) {
+    if (!mq.matches) return;
+    const w = mobSvg.clientWidth, h = mobSvg.clientHeight;
+    if (!w || !h) return;
+    const vbH = VBW * h / w;
+    let y = CAM[CAM.length - 1][1];
+    for (let i = 0; i < CAM.length - 1; i++) {
+      const a = CAM[i], b = CAM[i + 1];
+      if (q <= b[0]) { const t = b[0] === a[0] ? 1 : clamp((q - a[0]) / (b[0] - a[0])); y = a[1] + (b[1] - a[1]) * sstep(t); break; }
+    }
+    const z = sstep(clamp((q - 0.86) / 0.11));
+    const H = vbH + (Math.max(FULLH, vbH) - vbH) * z;
+    mobSvg.setAttribute('viewBox', '0 ' + (y * (1 - z)).toFixed(1) + ' ' + VBW + ' ' + H.toFixed(1));
+  }
+
+  const CAPS = [
+    [0.00, '01', 'Un visiteur arrive <em>sur votre site</em>.'],
+    [0.08, '02', 'Front Door et son <em>WAF</em> filtrent l’entrée.'],
+    [0.14, '03', 'Un réseau virtuel <em>isole</em> le reste, un NSG par sous-réseau.'],
+    [0.26, '04', 'Passerelle WAF, puis <em>application</em> et fonctions.'],
+    [0.43, '05', 'Hub & spoke : <em>Azure Firewall</em> contrôle le trafic sortant.'],
+    [0.60, '06', '<em>Private Endpoints</em> : les données ne touchent jamais Internet.'],
+    [0.76, '07', '<em>Entra ID</em> : identités managées, MFA, zéro mot de passe en base.'],
+    [0.86, '08', 'Défendu <em>de bout en bout</em>. Zero Trust.'],
+    [0.97, '09', 'Bienvenue à <em>l’atelier</em>.']
+  ];
+
+  els.forEach(el => {
+    el._s = parseFloat(el.dataset.s);
+    el._e = parseFloat(el.dataset.e);
+  });
+
+  let target = 0, cur = 0, done = false, capIdx = -1;
+
+  function render(p) {
+    const q = clamp((p - P0) / (1 - P0));
+    camera(q);
+    const fi = clamp((p - 0.07) / 0.08);
+    introEl.style.opacity = (1 - fi).toFixed(3);
+    introEl.style.transform = 'translateY(' + (-fi * 26).toFixed(1) + 'px)';
+    cap.style.opacity = clamp((p - 0.14) / 0.04).toFixed(3);
+    els.forEach(el => {
+      const t = ease(clamp((q - el._s) / (el._e - el._s)));
+      const k = el.dataset.k;
+      if (k === 'draw') {
+        if (el._L === undefined) {
+          let L = 0;
+          try { L = el.getTotalLength(); } catch (err) { return; }
+          if (!L) return;
+          el._L = L; el.style.strokeDasharray = L;
+        }
+        el.style.strokeDashoffset = el._L * (1 - t);
+        el.style.fillOpacity = t;
+        el.style.opacity = t > 0 ? 1 : 0;
+      } else if (k === 'pop') {
+        el.style.opacity = t;
+        el.style.transform = 'translateY(' + ((1 - t) * 12).toFixed(2) + 'px)';
+      } else {
+        el.style.opacity = t;
+      }
+    });
+
+    let idx = 0;
+    CAPS.forEach((c, i) => { if (q >= c[0]) idx = i; });
+    if (idx !== capIdx) {
+      const first = capIdx === -1;
+      capIdx = idx;
+      const apply = () => {
+        capN.textContent = CAPS[idx][1];
+        capT.innerHTML   = CAPS[idx][2];
+        cap.classList.remove('swap');
+      };
+      if (first) apply();
+      else { cap.classList.add('swap'); setTimeout(apply, 180); }
+    }
+
+    bar.style.height = (p * 100).toFixed(1) + '%';
+    hint.style.opacity = p > 0.02 ? 0 : 1;
+  }
+
+  function finish() {
+    done = true; cur = target = 1;
+    render(1);
+    fx.classList.add('done');
+    document.body.classList.remove('fx-pending');
+    document.body.classList.add('ready');
+  }
+  function reenter() {
+    done = false;
+    fx.classList.remove('done');
+    document.body.classList.add('fx-pending');
+    document.body.classList.remove('ready');
+    cur = target = 0.97;
+    render(cur);
+  }
+
+  const panelOpen = () => overlay.classList.contains('open');
+
+  /* Molette / trackpad */
+  window.addEventListener('wheel', e => {
+    if (panelOpen()) return;
+    const d = Math.max(-120, Math.min(120, e.deltaY));
+    if (done) { if (d < -40) reenter(); return; }
+    target = clamp(target + d * 0.0005);
+  }, { passive: true });
+
+  /* Tactile */
+  let ty = null;
+  window.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchmove', e => {
+    if (ty === null || panelOpen() || done) return;
+    const y = e.touches[0].clientY;
+    target = clamp(target + (ty - y) * 0.0035);
+    ty = y;
+  }, { passive: true });
+  window.addEventListener('touchend', () => { ty = null; }, { passive: true });
+
+  /* Clavier */
+  window.addEventListener('keydown', e => {
+    if (panelOpen()) return;
+    const down = ['ArrowDown', 'PageDown', ' ', 'ArrowRight'].includes(e.key);
+    const up   = ['ArrowUp', 'PageUp', 'ArrowLeft'].includes(e.key);
+    if (done) { if (up) reenter(); return; }
+    if (down) { target = clamp(target + 0.07); e.preventDefault(); }
+    else if (up) { target = clamp(target - 0.07); e.preventDefault(); }
+    else if (e.key === 'End') target = 1;
+    else if (e.key === 'Home') target = 0;
+  });
+
+  skip.addEventListener('click', finish);
+  bindCursor(skip, 'Passer');
+
+  /* Boucle : lissage + paquets qui circulent */
+  function loop(now) {
+    if (!done) {
+      cur += (target - cur) * 0.08;
+      if (Math.abs(target - cur) < 0.0005) cur = target;
+      render(cur);
+      if (target >= 1 && cur >= 0.995) finish();
+
+      const vis = clamp((((cur - P0) / (1 - P0)) - 0.72) * 18);
+      sets.forEach(st => {
+        if (!st.svg.getClientRects().length) return;
+        if (!st.lens) st.lens = st.paths.map(p => p.getTotalLength());
+        st.pulses.forEach((c, i) => {
+          const u = ((now / 2600) + i * 0.5) % 1;
+          const pt = st.paths[i].getPointAtLength(u * st.lens[i]);
+          c.setAttribute('cx', pt.x.toFixed(1));
+          c.setAttribute('cy', pt.y.toFixed(1));
+          c.setAttribute('opacity', vis.toFixed(2));
+        });
+      });
+    }
+    requestAnimationFrame(loop);
+  }
+
+  render(0);
+  requestAnimationFrame(loop);
+  const redraw = () => render(cur);
+  window.addEventListener('resize', redraw);
+  mq.addEventListener('change', redraw);
+
+  document.body.classList.add('fx-pending');
+  if (new URLSearchParams(location.search).get('fx') === '0' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
+
+  /* Pour les tests : window.__fx.set(0.5) */
+  window.__fx = {
+    set(p) { done = false; fx.classList.remove('done'); target = cur = clamp(p); render(cur); },
+    get progress() { return cur; },
+    get done() { return done; }
+  };
+})();
+
+/* ============================================================
+   Traits entre les pages : circuit du hero, rail des salles,
+   trace de l'objet cliqué vers la salle, cascade dans les panneaux
+============================================================ */
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+  /* ---------- Circuit du hero : cadre + tronc vers les cinq salles ---------- */
+  const circuit = document.getElementById('circuit');
+  let frameEl = null, runners = [];
+
+  function addRunner(d, speed, phase) {
+    const g = mk('path', { d: d, fill: 'none', stroke: 'none' });
+    circuit.appendChild(g);
+    const c = mk('circle', { r: 3.5, cx: -20, cy: -20, 'class': 'c-pulse' });
+    circuit.appendChild(c);
+    runners.push({ c: c, path: g, len: g.getTotalLength(), speed: speed, phase: phase });
+  }
+
+  const addC = (n, a, t) => { const e = mk(n, a); if (t !== undefined) e.textContent = t; circuit.appendChild(e); return e; };
+  function drawArch(x0, y0, x1, y1, W, H) {
+    let d = '';
+    for (let x = Math.ceil(x0 / 48) * 48; x < x1; x += 48) { if (x - x0 < 8 || x1 - x < 8) continue; const L = (x % 240 === 0) ? 11 : 5; d += 'M' + x + ' ' + y0 + 'v' + L + 'M' + x + ' ' + y1 + 'v-' + L; }
+    for (let y = Math.ceil(y0 / 48) * 48; y < y1; y += 48) { if (y - y0 < 8 || y1 - y < 8) continue; const L = (y % 240 === 0) ? 11 : 5; d += 'M' + x0 + ' ' + y + 'h' + L + 'M' + x1 + ' ' + y + 'h-' + L; }
+    addC('path', { d: d, 'class': 'c-rule' });
+    const letters = 'ABCDEFGHIJ';
+    for (let k = 0; ; k++) { const x = 240 * k + 120; if (x >= x1 - 30) break; if (x <= x0 + 30) continue; addC('text', { x: x, y: y1 + 19, 'class': 'c-rtxt', 'text-anchor': 'middle' }, letters[k]); }
+    for (let k = 0; ; k++) { const y = 240 * k + 120; if (y >= y1 - 20) break; if (y <= y0 + 20) continue; addC('text', { x: (x1 + W) / 2, y: y + 3, 'class': 'c-rtxt', 'text-anchor': 'middle' }, String(k + 1)); }
+    if (H >= 620 && W >= 1000) {
+      const w = 272, h = 62, cx = x1 - w, cy = y1 - h, mx = cx + w * 0.55;
+      addC('rect', { x: cx, y: cy, width: w, height: h, 'class': 'c-cart' });
+      addC('path', { d: 'M' + cx + ' ' + (cy + h / 2) + 'h' + w + 'M' + mx + ' ' + cy + 'v' + h, 'class': 'c-cartln' });
+      const cell = (x, y, k, v) => { addC('text', { x: x, y: y, 'class': 'c-ck' }, k); addC('text', { x: x, y: y + 13, 'class': 'c-cv' }, v); };
+      cell(cx + 10, cy + 11, 'Projet', 'Portfolio Cloud');
+      cell(mx + 10, cy + 11, 'Planche', '01 / 05');
+      cell(cx + 10, cy + h / 2 + 11, 'Architecte', 'S. Manlango');
+      cell(mx + 10, cy + h / 2 + 11, 'Échelle', '1 : 1');
+    }
+  }
+
+  function buildCircuit() {
+    circuit.innerHTML = ''; runners = []; frameEl = null;
+    const W = innerWidth, H = innerHeight;
+    if (W <= 900) return;
+    circuit.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+    const x0 = clamp(W * 0.03, 26, 56), x1 = W - x0, y0 = 100, y1 = H - 48;
+    const fd = 'M' + x0 + ' ' + y0 + ' H' + x1 + ' V' + y1 + ' H' + x0 + ' Z';
+    frameEl = mk('path', { d: fd, 'class': 'c-frame' });
+    circuit.appendChild(frameEl);
+    const frameLen = frameEl.getTotalLength();
+    frameEl.style.setProperty('--L', frameLen.toFixed(1));
+
+    [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].forEach(p => {
+      circuit.appendChild(mk('rect', { x: p[0] - 4, y: p[1] - 4, width: 8, height: 8, 'class': 'c-corner', transform: 'rotate(45 ' + p[0] + ' ' + p[1] + ')' }));
+    });
+    const tg = mk('text', { x: x0 + 14, y: y0 - 12, 'class': 'c-tag' });
+    tg.textContent = 'Atelier · 5 salles reliées';
+    circuit.appendChild(tg);
+    drawArch(x0, y0, x1, y1, W, H);
+
+    const rooms = [...document.querySelectorAll('.room')];
+    const hero = document.querySelector('.hero'), title = document.querySelector('.hero-title');
+    if (rooms.length && hero && title) {
+      const rr = rooms.map(r => r.getBoundingClientRect());
+      const ys = rr.map(r => r.top + r.height / 2);
+      const spineX = Math.min.apply(null, rr.map(r => r.left)) - 46;
+
+      /* bord droit du texte du titre (mesuré sur le texte, pas sur le bloc) */
+      const range = document.createRange(); range.selectNodeContents(title);
+      const tRight = Math.max.apply(null, [...range.getClientRects()].map(r => r.right));
+      const startX = Math.min(tRight + 30, spineX - 60);
+      const trunkY = clamp(hero.offsetTop + title.offsetTop + title.offsetHeight / 2, ys[0], ys[ys.length - 1]);
+
+      const seg = (d, L, delay, extra) => {
+        const p = mk('path', Object.assign({ d: d, 'class': 'c-link' }, extra || {}));
+        p.style.setProperty('--L', L.toFixed(1));
+        p.style.setProperty('--d', delay.toFixed(2) + 's');
+        circuit.appendChild(p); return p;
+      };
+      const dot = (x, y, delay, extra) => {
+        const c = mk('circle', Object.assign({ cx: x, cy: y, r: 4.5, 'class': 'c-dot' }, extra || {}));
+        c.style.setProperty('--d2', delay.toFixed(2) + 's');
+        circuit.appendChild(c); return c;
+      };
+
+      seg('M' + startX + ' ' + trunkY + ' H' + spineX, spineX - startX, 0.9);
+      dot(startX, trunkY, 0.9);
+      seg('M' + spineX + ' ' + ys[0] + ' V' + ys[ys.length - 1], ys[ys.length - 1] - ys[0], 1.5);
+      dot(spineX, trunkY, 1.9);
+
+      /* cote sous le titre */
+      const trs = [...range.getClientRects()].filter(r => r.width > 2);
+      if (trs.length) {
+        const tL = Math.min.apply(null, trs.map(r => r.left)), tB = Math.max.apply(null, trs.map(r => r.bottom)), dy = tB + 22;
+        addC('path', { d: 'M' + tL + ' ' + (tB + 6) + 'V' + (dy + 7) + 'M' + tRight + ' ' + (tB + 6) + 'V' + (dy + 7) + 'M' + tL + ' ' + dy + 'H' + tRight + 'M' + (tL - 5) + ' ' + (dy + 5) + 'l10 -10M' + (tRight - 5) + ' ' + (dy + 5) + 'l10 -10', 'class': 'c-dim' });
+        const lab = 'Architecte Cloud · Azure · Sécurité', tw = lab.length * 6.6 + 24, mxx = (tL + tRight) / 2;
+        addC('rect', { x: mxx - tw / 2, y: dy - 8, width: tw, height: 16, 'class': 'c-dimbg' });
+        addC('text', { x: mxx, y: dy + 3.5, 'text-anchor': 'middle', 'class': 'c-dimtxt' }, lab);
+      }
+      /* repères de coupe A et A' */
+      [[ys[0] - 40, 'A', ys[0], 11], [ys[ys.length - 1] + 40, "A'", ys[ys.length - 1], -11]].forEach(m => {
+        addC('path', { d: 'M' + spineX + ' ' + m[2] + 'V' + (m[0] + m[3]), 'class': 'c-dim' });
+        addC('circle', { cx: spineX, cy: m[0], r: 11, 'class': 'c-mark' });
+        addC('text', { x: spineX, y: m[0] + 3.5, 'text-anchor': 'middle', 'class': 'c-marktxt' }, m[1]);
+      });
+
+      rooms.forEach((room, i) => {
+        const key = room.dataset.open;
+        const d = 'M' + spineX + ' ' + ys[i].toFixed(1) + ' H' + (rr[i].left).toFixed(1);
+        seg(d, rr[i].left - spineX, 1.7 + i * 0.12, { 'data-room': key });
+        dot(spineX, ys[i], 1.7 + i * 0.12, { 'data-room': key });
+      });
+
+      addRunner('M' + startX + ' ' + trunkY + ' H' + spineX + ' V' + ys[0] + ' H' + rr[0].left, 0.00014, 0.0);
+      addRunner('M' + startX + ' ' + trunkY + ' H' + spineX + ' V' + ys[ys.length - 1] + ' H' + rr[ys.length - 1].left, 0.00014, 0.5);
+    }
+    addRunner(fd, 0.00009, 0.0);
+    addRunner(fd, 0.00009, 0.5);
+  }
+
+  /* survol d'une salle : sa branche s'allume */
+  const roomsBox = document.querySelector('.rooms');
+  function hot(e, on) {
+    const r = e.target.closest ? e.target.closest('.room') : null;
+    if (!r) return;
+    circuit.querySelectorAll('[data-room="' + r.dataset.open + '"]').forEach(el => el.classList.toggle('hot', on));
+  }
+  roomsBox.addEventListener('mouseover', e => hot(e, true));
+  roomsBox.addEventListener('mouseout',  e => hot(e, false));
+  roomsBox.addEventListener('focusin',   e => hot(e, true));
+  roomsBox.addEventListener('focusout',  e => hot(e, false));
+
+  function circuitLoop(t) {
+    const ready = document.body.classList.contains('ready');
+    const open = overlay.classList.contains('open');
+    runners.forEach(r => {
+      if (ready && !open) {
+        const u = ((t * r.speed) + r.phase) % 1;
+        const pt = r.path.getPointAtLength(u * r.len);
+        r.c.setAttribute('cx', pt.x.toFixed(1));
+        r.c.setAttribute('cy', pt.y.toFixed(1));
+        r.c.style.opacity = 1;
+      } else r.c.style.opacity = 0;
+    });
+    requestAnimationFrame(circuitLoop);
+  }
+
+  /* ---------- Rail des salles ---------- */
+  const ROOMS = [['about', '01', 'À propos'], ['work', '02', 'Services'], ['skills', '03', 'Stack'], ['journey', '04', 'Parcours'], ['contact', '05', 'Contact']];
+  const GAP = 74, TOP = 130;
+  const rail = document.getElementById('rail');
+  rail.innerHTML = '<i class="rl-line"></i><i class="rl-dock"></i><i class="rl-pulse"></i>' +
+    ROOMS.map((r, i) => '<button type="button" class="rl-node" data-room="' + r[0] + '" style="top:' + (i * GAP) + 'px;--i:' + i + '"><span><b>' + r[1] + '</b>' + r[2] + '</span><i></i></button>').join('');
+  const dock = rail.querySelector('.rl-dock'), rpulse = rail.querySelector('.rl-pulse');
+  const rnodes = [...rail.querySelectorAll('.rl-node')];
+  rnodes.forEach(n => bindCursor(n, n.dataset.room === 'work' ? 'Services' : n.textContent.replace(/^\d+/, '').trim()));
+  rail.addEventListener('click', e => { const b = e.target.closest('.rl-node'); if (b) openPanel(b.dataset.room); });
+
+  function layoutRail() {
+    const W = innerWidth;
+    const panelLeft = W - Math.min(720, W);
+    rail.style.left = (panelLeft - 40) + 'px';
+    rail.style.top = TOP + 'px';
+  }
+
+  function setActive(idx) {
+    rnodes.forEach((n, i) => n.classList.toggle('active', i === idx));
+    dock.style.top = (idx * GAP) + 'px';
+    rpulse.style.top = (idx * GAP - 3) + 'px';
+  }
+
+  /* ---------- Trace objet → salle ---------- */
+  const trace = document.getElementById('trace');
+  function drawTrace(originEl, idx) {
+    if (!originEl || innerWidth <= 900) return;
+    const r = originEl.getBoundingClientRect();
+    const ox = r.left + r.width / 2, oy = r.top + r.height / 2;
+    const railX = parseFloat(rail.style.left) || (innerWidth - 760);
+    const ty = TOP + idx * GAP;
+    const mx = Math.min(ox, railX) + Math.abs(ox - railX) * 0.5;
+    const d = 'M' + ox.toFixed(1) + ' ' + oy.toFixed(1) + ' H' + mx.toFixed(1) + ' V' + ty + ' H' + railX.toFixed(1);
+    const p = mk('path', { d: d });
+    trace.appendChild(p);
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
+    p.getBoundingClientRect();
+    p.style.strokeDashoffset = 0;
+    setTimeout(() => { p.style.opacity = 0; }, 900);
+    setTimeout(() => { p.remove(); }, 1600);
+  }
+
+  /* ---------- Synchronisation avec l'ouverture des panneaux ---------- */
+  let lastOrigin = null;
+  document.addEventListener('click', e => { lastOrigin = e.target.closest('[data-open]'); }, true);
+
+  function sync() {
+    const entry = Object.entries(panels).find(p => p[1].classList.contains('active'));
+    const open = overlay.classList.contains('open') && entry;
+    if (open) {
+      const idx = ROOMS.findIndex(r => r[0] === entry[0]);
+      const wasOpen = rail.classList.contains('open');
+      layoutRail();
+      if (!wasOpen) { setActive(idx); dock.style.transition = 'none'; requestAnimationFrame(() => { dock.style.transition = ''; }); }
+      rail.classList.add('open');
+      setActive(idx);
+      if (!wasOpen) drawTrace(lastOrigin, idx);
+    } else {
+      rail.classList.remove('open');
+    }
+  }
+  const mo = new MutationObserver(sync);
+  mo.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  Object.values(panels).forEach(p => mo.observe(p, { attributes: true, attributeFilter: ['class'] }));
+
+  /* ---------- Cascade dans les panneaux ---------- */
+  Object.values(panels).forEach(p => {
+    p.querySelectorAll('.tl-item, .proj, .contact-row, .skill, .seal, .fact, .room-p, .storey').forEach((el, i) => el.style.setProperty('--i', i));
+  });
+
+  /* ---------- Init ---------- */
+  layoutRail();
+  buildCircuit();
+  requestAnimationFrame(circuitLoop);
+  let rz;
+  window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { buildCircuit(); layoutRail(); }, 150); });
+  window.addEventListener('load', () => setTimeout(buildCircuit, 50));
+})();
+</script>
+<script>
+(function () {
+  const picks = [...document.querySelectorAll('#p-contact .pick')], v = document.getElementById('brief-v'), cta = document.getElementById('mail-cta');
+  const base = 'mailto:ManlangoStephane@outlook.com', empty = 'Choisissez un ou plusieurs types de projet';
+  function upd() {
+    const sel = picks.filter(p => p.getAttribute('aria-pressed') === 'true').map(p => p.dataset.v);
+    v.textContent = sel.length ? sel.join(' · ') : empty;
+    cta.href = sel.length ? base + '?subject=' + encodeURIComponent('Projet : ' + sel.join(', ')) + '&body=' + encodeURIComponent('Bonjour,\n\nJe vous contacte pour : ' + sel.join(', ') + '.\n\n') : base;
+  }
+  picks.forEach(p => p.addEventListener('click', () => { p.setAttribute('aria-pressed', p.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); upd(); }));
+})();
 </script>
 </body>
 </html>
